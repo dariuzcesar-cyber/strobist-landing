@@ -1,3151 +1,744 @@
-<!doctype html>
-
-<html lang="es" dir="ltr">
-
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="es">
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Masterclass de Flash en Exterior | Strobist</title>
 
-  
+  <!-- Fuentes e Iconos -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-  <!-- CDN Oficial de Tailwind CSS -->
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  
-
-  <!-- Tipografía Google Sans / Inter -->
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <!-- CDN Tailwind CSS y Configuración de Tema -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'on-primary': '#561f00',
+            'tertiary-fixed-dim': '#c6c5d3',
+            'on-secondary': '#462a00',
+            'secondary': '#ffcb8d',
+            'secondary-container': '#ffa504',
+            'background': '#131315',
+            'inverse-primary': '#a04100',
+            'inverse-surface': '#e5e1e4',
+            'primary-fixed-dim': '#ffb693',
+            'surface-container-low': '#1c1b1d',
+            'on-error-container': '#ffdad6',
+            'on-error': '#690005',
+            'surface-dim': '#131315',
+            'on-primary-container': '#572000',
+            'on-surface': '#e5e1e4',
+            'surface-container': '#201f21',
+            'on-tertiary-fixed': '#1a1b25',
+            'tertiary': '#c6c5d3',
+            'surface-container-high': '#2a2a2c',
+            'on-tertiary-fixed-variant': '#454652',
+            'primary-container': '#ff6b00',
+            'error': '#ffb4ab',
+            'on-secondary-fixed-variant': '#653e00',
+            'surface-bright': '#39393b',
+            'surface-variant': '#353437',
+            'on-secondary-container': '#684100',
+            'on-tertiary': '#2f303b',
+            'on-surface-variant': '#e2bfb0',
+            'tertiary-fixed': '#e2e1f0',
+            'on-secondary-fixed': '#2a1700',
+            'on-background': '#e5e1e4',
+            'tertiary-container': '#9898a5',
+            'surface-tint': '#ffb693',
+            'primary-fixed': '#ffdbcc',
+            'secondary-fixed-dim': '#ffb95c',
+            'primary': '#ffb693',
+            'surface': '#131315',
+            'error-container': '#93000a',
+            'surface-container-lowest': '#0e0e10',
+            'surface-container-highest': '#353437',
+            'secondary-fixed': '#ffddb7',
+            'outline': '#a98a7d',
+            'inverse-on-surface': '#313032',
+            'on-tertiary-container': '#2f303b',
+            'outline-variant': '#5a4136',
+            'on-primary-fixed-variant': '#7a3000',
+            'on-primary-fixed': '#351000'
+          },
+          borderRadius: {
+            'DEFAULT': '0.125rem',
+            'lg': '0.25rem',
+            'xl': '0.5rem',
+            'full': '0.75rem'
+          },
+          spacing: {
+            'space-sm': '0.75rem',
+            'gutter-desktop': '2rem',
+            'space-4xl': '6rem',
+            'space-lg': '1.5rem',
+            'space-xs': '0.5rem',
+            'container-max': '1280px',
+            'space-2xl': '3rem',
+            'space-md': '1rem',
+            'gutter-mobile': '1rem',
+            'space-3xl': '4.5rem',
+            'space-2xs': '0.25rem',
+            'space-xl': '2rem'
+          },
+          fontFamily: {
+            'headline-lg': ['Space Grotesk', 'sans-serif'],
+            'headline-sm': ['Space Grotesk', 'sans-serif'],
+            'body-sm': ['Manrope', 'sans-serif'],
+            'headline-lg-mobile': ['Space Grotesk', 'sans-serif'],
+            'label-mono': ['JetBrains Mono', 'monospace'],
+            'body-lg': ['Manrope', 'sans-serif'],
+            'headline-md': ['Space Grotesk', 'sans-serif'],
+            'display-hero-mobile': ['Space Grotesk', 'sans-serif'],
+            'display-hero': ['Space Grotesk', 'sans-serif'],
+            'body-md': ['Manrope', 'sans-serif'],
+            'label-badge': ['Space Grotesk', 'sans-serif']
+          },
+          fontSize: {
+            'headline-lg': ['40px', { lineHeight: '48px', letterSpacing: '-0.02em', fontWeight: '600' }],
+            'headline-sm': ['20px', { lineHeight: '28px', fontWeight: '500' }],
+            'body-sm': ['13px', { lineHeight: '20px', fontWeight: '400' }],
+            'headline-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.01em', fontWeight: '600' }],
+            'label-mono': ['12px', { lineHeight: '16px', letterSpacing: '0.06em', fontWeight: '500' }],
+            'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+            'headline-md': ['28px', { lineHeight: '36px', letterSpacing: '-0.01em', fontWeight: '600' }],
+            'display-hero-mobile': ['38px', { lineHeight: '46px', letterSpacing: '-0.02em', fontWeight: '700' }],
+            'display-hero': ['64px', { lineHeight: '72px', letterSpacing: '-0.03em', fontWeight: '700' }],
+            'body-md': ['15px', { lineHeight: '24px', fontWeight: '400' }],
+            'label-badge': ['11px', { lineHeight: '14px', letterSpacing: '0.08em', fontWeight: '700' }]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @layer base {
+      html, body { margin:0; padding:0; scroll-behavior:smooth; }
+      body { overscroll-behavior:none; }
+    }
+    ::-webkit-scrollbar { display:none; }
+    * { scrollbar-width: none; }
+  </style>
 </head>
-
-<body class="bg-[#121316] text-white font-['Inter',sans-serif]">
-
-
-
-  <main class="flex flex-1 flex-col overflow-y-auto"><div class="w-full h-svh relative flex flex-col"><div style="position: absolute; inset: 0px; pointer-events: none; overflow: hidden;"><div style="position: absolute; inset: 0px; background-image: radial-gradient(circle, rgb(102, 102, 102) 0.5px, transparent 0.5px); background-size: 10px 10px; background-position: 5px 5px; pointer-events: none;"></div><div style="position: absolute; inset: 0px; background-image: radial-gradient(circle, rgb(255, 255, 255) 0.5px, transparent 0.5px); background-size: 10px 10px; background-position: 5px 5px; pointer-events: none; mask-image: linear-gradient(transparent, transparent); opacity: 0;"></div></div><div class="cv3-header-gradient pointer-events-none" aria-hidden="true"></div><div class="z-50 relative"><header class="flex w-full items-center justify-between h-12 bg-surface-container border-b border-secondary px-4 !bg-transparent !border-b-transparent"><div class="flex-1 flex items-center justify-start"><div class="select-none outline-0"><img alt="Nombre del producto, Stitch (beta)" class="hidden dark:block" src="/static/stitch-word.svg"><img alt="Nombre del producto, Stitch (beta)" class="block dark:hidden" src="/static/stitch-word-dark.svg"></div></div><div class="flex items-center justify-center gap-1"><div><button class="gap-2 bg-clip-border focus-visible:outline-2 focus-visible:outline-current focus-visible:-outline-offset-2 border-none bg-transparent text-primary enabled:hover:bg-state-hover enabled:active:bg-state-pressed text-subtitle-md px-3 w-8 h-8 flex items-center justify-center rounded-full !p-0" tabindex="0"><span class="text-inherit"><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256"><path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16ZM72,64H184V192H72Zm8-32h96a8,8,0,0,1,8,8v8H72V40A8,8,0,0,1,80,32Zm96,192H80a8,8,0,0,1-8-8v-8H184v8A8,8,0,0,1,176,224Z"></path></svg></span></button></div><div><button class="gap-2 bg-clip-border focus-visible:outline-2 focus-visible:outline-current focus-visible:-outline-offset-2 border-none bg-transparent text-primary enabled:hover:bg-state-hover enabled:active:bg-state-pressed text-subtitle-md px-3 w-8 h-8 flex items-center justify-center rounded-full !p-0" tabindex="0"><span class="text-inherit"><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256"><path d="M192,24H64A24,24,0,0,0,40,48V208a24,24,0,0,0,24,24H192a24,24,0,0,0,24-24V48A24,24,0,0,0,192,24ZM56,72H200V184H56Zm8-32H192a8,8,0,0,1,8,8v8H56V48A8,8,0,0,1,64,40ZM192,216H64a8,8,0,0,1-8-8v-8H200v8A8,8,0,0,1,192,216Z"></path></svg></span></button></div><div><button class="gap-2 bg-clip-border focus-visible:outline-2 focus-visible:outline-current focus-visible:-outline-offset-2 border-none enabled:hover:bg-state-hover enabled:active:bg-state-pressed text-subtitle-md px-3 w-8 h-8 flex items-center justify-center rounded-full !p-0 bg-surface-inverse text-inverse-primary hover:bg-surface-inverse" tabindex="0"><span class="text-inherit"><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256"><path d="M208,40H48A24,24,0,0,0,24,64V176a24,24,0,0,0,24,24h72v16H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V200h72a24,24,0,0,0,24-24V64A24,24,0,0,0,208,40ZM48,56H208a8,8,0,0,1,8,8v80H40V64A8,8,0,0,1,48,56ZM208,184H48a8,8,0,0,1-8-8V160H216v16A8,8,0,0,1,208,184Z"></path></svg></span></button></div><div class="w-px h-6 bg-secondary/60 mx-2"></div><div><button class="gap-2 bg-clip-border focus-visible:outline-2 focus-visible:outline-current focus-visible:-outline-offset-2 border-none bg-transparent text-primary enabled:hover:bg-state-hover enabled:active:bg-state-pressed text-subtitle-md px-3 w-8 h-8 flex items-center justify-center rounded-full !p-0" tabindex="0"><span class="text-inherit"><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></span></button></div><div><button class="gap-2 bg-clip-border focus-visible:outline-2 focus-visible:outline-current focus-visible:-outline-offset-2 border-none bg-transparent text-primary enabled:hover:bg-state-hover enabled:active:bg-state-pressed text-subtitle-md px-3 w-8 h-8 flex items-center justify-center rounded-full !p-0" tabindex="0"><span class="text-inherit"><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256"><path d="M240,56v48a8,8,0,0,1-8,8H184a8,8,0,0,1,0-16H211.4L184.81,71.64l-.25-.24a80,80,0,1,0-1.67,114.78,8,8,0,0,1,11,11.63A95.44,95.44,0,0,1,128,224h-1.32A96,96,0,1,1,195.75,60L224,85.8V56a8,8,0,1,1,16,0Z"></path></svg></span></button></div><div><button class="gap-2 bg-clip-border focus-visible:outline-2 focus-visible:outline-current focus-visible:-outline-offset-2 border-none bg-transparent text-primary enabled:hover:bg-state-hover enabled:active:bg-state-pressed text-subtitle-md px-3 w-8 h-8 flex items-center justify-center rounded-full !p-0" tabindex="0"><span class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256"><path d="M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm0,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48ZM200,40H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-64,72V144a8,8,0,0,1,16,0v32a8,8,0,0,1-16,0Zm80-16a8,8,0,0,1-8,8H184v40a8,8,0,0,1-8,8H144a8,8,0,0,1,0-16h24V144a8,8,0,0,1,16,0v8h24A8,8,0,0,1,216,160Zm0,32v16a8,8,0,0,1-16,0V192a8,8,0,0,1,16,0Z"></path></svg></span></button></div></div><div class="flex-1 flex items-center justify-end gap-2"><button class="items-center justify-center bg-clip-border focus-visible:outline-2 focus-visible:outline-current focus-visible:-outline-offset-2 border border-secondary enabled:hover:bg-state-hover enabled:active:bg-state-pressed backdrop-blur-glass bg-surface-container backdrop-blur-glass text-sm text-primary font-heading flex gap-[6px] p-2 lg:px-4 lg:py-3 h-8 rounded-[20px]" tabindex="0"><span class="text-inherit"><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" viewBox="0 0 256 256"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path></svg></span><p class="hidden lg:inline font-heading text-sm font-medium leading-[1]">Compartir</p></button></div></header></div><div class="flex-1 overflow-hidden"><div class="flex items-center justify-center w-full h-full overflow-hidden relative p-8"><div class="relative flex-shrink-0" style="width: 1304px; height: 1048px;"><div class="absolute top-0 left-0 shadow-2xl rounded-[2.5rem] origin-top-left" style="width: 1304px; height: 1048px; transform: scale(1);"><div class="absolute inset-0 rounded-[2.5rem] bg-gray-400"></div><div class="pointer-events-none absolute left-0 top-[20%] h-[6%] w-1 rounded-r-md bg-gray-600"></div><div class="absolute inset-3 overflow-hidden rounded-[2rem] bg-white flex flex-col"><div class="absolute inset-0 w-full h-full overflow-hidden"><div class="absolute inset-0 w-full h-full bg-white" style="opacity: 1; z-index: 10; display: flex; transform: none;"><div class="w-full absolute inset-0" style="opacity: 0.5;"></div><iframe class="w-full absolute inset-0 shadow-xl" srcdoc="&lt;!DOCTYPE html&gt;
-
-
-
-&lt;html class=&quot;dark scroll-smooth&quot; lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;/&gt;&lt;meta content=&quot;width=device-width, initial-scale=1.0&quot; name=&quot;viewport&quot;/&gt;&lt;link href=&quot;https://fonts.googleapis.com&quot; rel=&quot;preconnect&quot;/&gt;&lt;link crossorigin=&quot;&quot; href=&quot;https://fonts.gstatic.com&quot; rel=&quot;preconnect&quot;/&gt;&lt;link href=&quot;https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;amp;family=Manrope:wght@400;500;600;700&amp;amp;family=Space+Grotesk:wght@500;600;700&amp;amp;display=swap&quot; rel=&quot;stylesheet&quot;/&gt;&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;amp;display=swap&quot; rel=&quot;stylesheet&quot;/&gt;&lt;style&gt;@layer base{html,body{margin:0;padding:0;scroll-behavior:smooth;}body{overscroll-behavior:none;}main&gt;:first-child{margin-top:0!important;}main&gt;:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}&lt;/style&gt;&lt;script src=&quot;https://cdn.tailwindcss.com?plugins=forms,container-queries&quot;&gt;&lt;/script&gt;&lt;script id=&quot;tailwind-config&quot;&gt;tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-primary': '#561f00', 'tertiary-fixed-dim': '#c6c5d3', 'on-secondary': '#462a00', 'secondary': '#ffcb8d', 'secondary-container': '#ffa504', 'background': '#131315', 'inverse-primary': '#a04100', 'inverse-surface': '#e5e1e4', 'primary-fixed-dim': '#ffb693', 'surface-container-low': '#1c1b1d', 'on-error-container': '#ffdad6', 'on-error': '#690005', 'surface-dim': '#131315', 'on-primary-container': '#572000', 'on-surface': '#e5e1e4', 'surface-container': '#201f21', 'on-tertiary-fixed': '#1a1b25', 'tertiary': '#c6c5d3', 'surface-container-high': '#2a2a2c', 'on-tertiary-fixed-variant': '#454652', 'primary-container': '#ff6b00', 'error': '#ffb4ab', 'on-secondary-fixed-variant': '#653e00', 'surface-bright': '#39393b', 'surface-variant': '#353437', 'on-secondary-container': '#684100', 'on-tertiary': '#2f303b', 'on-surface-variant': '#e2bfb0', 'tertiary-fixed': '#e2e1f0', 'on-secondary-fixed': '#2a1700', 'on-background': '#e5e1e4', 'tertiary-container': '#9898a5', 'surface-tint': '#ffb693', 'primary-fixed': '#ffdbcc', 'secondary-fixed-dim': '#ffb95c', 'primary': '#ffb693', 'surface': '#131315', 'error-container': '#93000a', 'surface-container-lowest': '#0e0e10', 'surface-container-highest': '#353437', 'secondary-fixed': '#ffddb7', 'outline': '#a98a7d', 'inverse-on-surface': '#313032', 'on-tertiary-container': '#2f303b', 'outline-variant': '#5a4136', 'on-primary-fixed-variant': '#7a3000', 'on-primary-fixed': '#351000' }, borderRadius: { 'DEFAULT': '0.125rem', 'lg': '0.25rem', 'xl': '0.5rem', 'full': '0.75rem' }, spacing: { 'space-sm': '0.75rem', 'gutter-desktop': '2rem', 'space-4xl': '6rem', 'space-lg': '1.5rem', 'space-xs': '0.5rem', 'container-max': '1280px', 'space-2xl': '3rem', 'space-md': '1rem', 'gutter-mobile': '1rem', 'space-3xl': '4.5rem', 'space-2xs': '0.25rem', 'space-xl': '2rem' }, fontFamily: { 'headline-lg': ['Space Grotesk'], 'headline-sm': ['Space Grotesk'], 'body-sm': ['Manrope'], 'headline-lg-mobile': ['Space Grotesk'], 'label-mono': ['JetBrains Mono'], 'body-lg': ['Manrope'], 'headline-md': ['Space Grotesk'], 'display-hero-mobile': ['Space Grotesk'], 'display-hero': ['Space Grotesk'], 'body-md': ['Manrope'], 'label-badge': ['Space Grotesk'] }, fontSize: { 'headline-lg': ['40px', { lineHeight: '48px', letterSpacing: '-0.02em', fontWeight: '600' }], 'headline-sm': ['20px', { lineHeight: '28px', fontWeight: '500' }], 'body-sm': ['13px', { lineHeight: '20px', fontWeight: '400' }], 'headline-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.01em', fontWeight: '600' }], 'label-mono': ['12px', { lineHeight: '16px', letterSpacing: '0.06em', fontWeight: '500' }], 'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }], 'headline-md': ['28px', { lineHeight: '36px', letterSpacing: '-0.01em', fontWeight: '600' }], 'display-hero-mobile': ['38px', { lineHeight: '46px', letterSpacing: '-0.02em', fontWeight: '700' }], 'display-hero': ['64px', { lineHeight: '72px', letterSpacing: '-0.03em', fontWeight: '700' }], 'body-md': ['15px', { lineHeight: '24px', fontWeight: '400' }], 'label-badge': ['11px', { lineHeight: '14px', letterSpacing: '0.08em', fontWeight: '700' }] } } } };&lt;/script&gt;&lt;style data-stitch-injected&gt;
-
-  /* Hide scrollbars on ALL elements (Webkit) */
-
-  *::-webkit-scrollbar {
-
-    display: none;
-
-  }
-
-
-
-  /* Hide scrollbars on ALL elements (Firefox) */
-
-  * {
-
-    scrollbar-width: none;
-
-  }
-
-
-
-  /* Suppress horizontal overflow and legacy IE/Edge */
-
-  html, body {
-
-    overflow-x: hidden !important;
-
-    -ms-overflow-style: none;
-
-    min-height: auto !important;
-
-  }
-
-
-
-  /* Global text selection highlight color override inside all iframe modes */
-
-  ::selection {
-
-    background-color: rgba(96, 86, 240, 0.3) !important;
-
-    color: inherit !important;
-
-  }
-
-  ::-moz-selection {
-
-    background-color: rgba(96, 86, 240, 0.3) !important;
-
-    color: inherit !important;
-
-  }
-
-
-
-  /* Suppress browser default focus outlines and box-shadow glows globally */
-
-  *:focus, *:focus-visible {
-
-    outline: none !important;
-
-    box-shadow: none !important;
-
-  }
-
-&lt;/style&gt;&lt;script data-stitch-injected&gt;(function pt(){window.addEventListener(`message`,async function(e){let t=e.data;if(!t||t.type!==`capture_screenshot`||e.source!==window.parent)return;let n=t.requestId,r=t.captureEngineSource,i=t.options||{},a=window.innerWidth,o=window.innerHeight,s=window.scrollX,c=window.scrollY,l=document.documentElement,u=l.style.width,d=l.style.height,f=l.style.overflow,p=l.style.position;try{if(!window.snapdom&amp;&amp;r){let e=document.createElement(`script`);e.setAttribute(`data-stitch-injected`,``),e.textContent=r,document.head.appendChild(e)}let e=window.snapdom;if(!e){window.parent.postMessage({type:`screenshot_error`,requestId:n,errorCode:`CAPTURE_ENGINE_UNAVAILABLE`,error:`Capture engine not available. Ensure source is sent with the capture request.`},`*`);return}let t=i.exclude||[`[data-stitch-injected]`];window.scrollTo(0,0),l.style.width=a+`px`,l.style.height=o+`px`,l.style.overflow=`hidden`,l.style.position=`relative`;let u=await(await e(document.documentElement,{exclude:t,embedFonts:!0,scale:i.scale||1,plugins:[{name:`stitch-viewport-clip`,afterClone:function(e){let t=e.clone;if(!(t instanceof HTMLElement))return;t.style.position=`relative`,t.style.width=a+`px`,t.style.height=o+`px`,t.style.overflow=`hidden`;let n=[],r=t.querySelectorAll(`*`);for(let e=0;e&lt;r.length;e++){let t=r[e];t instanceof HTMLElement&amp;&amp;(t.style.position||(t.__snapdomComputedStyle||window.getComputedStyle(t)).position)===`fixed`&amp;&amp;n.push(t)}if(s!==0||c!==0){let e=t.querySelector(`body`);e&amp;&amp;(e.style.marginTop=-c+`px`,e.style.marginLeft=-s+`px`)}for(let e=0;e&lt;n.length;e++)n[e].style.position=`absolute`,t.appendChild(n[e])}}]})).toCanvas({width:a,height:o}),d=i.format||`image/jpeg`,f=i.quality??.8,p=u.toDataURL(d,f);window.parent.postMessage({type:`screenshot_captured`,requestId:n,dataUrl:p,width:a,height:o},`*`)}catch(e){window.parent.postMessage({type:`screenshot_error`,requestId:n,error:e instanceof Error?e.message:String(e)},`*`)}finally{l.style.width=u,l.style.height=d,l.style.overflow=f,l.style.position=p,window.scrollTo(s,c)}})})();&lt;/script&gt;&lt;script data-stitch-injected&gt;(function gt(){let e=`__stitch-highlight-css`,t=`stitch-highlight-element`,n=null;function r(){if(document.getElementById(e))return;let n=document.createElement(`style`);n.id=e,n.textContent=[`@keyframes stitch-highlight-pulse {`,`  0%, 100% { box-shadow: 0 0 0 3px rgba(113,105,237,0.8), 0 0 12px 4px rgba(113,105,237,0.3); }`,`  50%      { box-shadow: 0 0 0 3px rgba(113,105,237,0.4), 0 0 6px 2px rgba(113,105,237,0.15); }`,`}`,`.`+t+` {`,`  outline: 3px solid rgba(113,105,237,0.8) !important;`,`  outline-offset: 2px !important;`,`  animation: stitch-highlight-pulse 1.5s ease-in-out infinite !important;`,`  border-radius: inherit;`,`}`].join(`
-
-`),document.head.appendChild(n)}function i(e){let t=e.toLowerCase().trim(),n=document.createTreeWalker(document.body,NodeFilter.SHOW_ELEMENT,null),r=null,i=-1,a=n.nextNode();for(;a;){if((a.textContent||``).trim().toLowerCase().includes(t)){let e=0,t=a.parentElement;for(;t;)e++,t=t.parentElement;e&gt;i&amp;&amp;(i=e,r=a)}a=n.nextNode()}return r}function a(e){setTimeout(function(){let t=e.getBoundingClientRect(),n=window.innerWidth||1,r=window.innerHeight||1;window.parent.postMessage({type:`stitch:highlight-element-rect`,normalizedX:(t.left+t.width/2)/n,normalizedY:(t.top+t.height/2)/r,normalizedWidth:t.width/n,normalizedHeight:t.height/r},`*`)},400)}window.addEventListener(`message`,function(e){if(!e.data||e.data.type!==`stitch:highlight-element`)return;n&amp;&amp;=(n.classList.remove(t),null);let{text:o,selector:s}=e.data;if(!o&amp;&amp;!s)return;r();let c=null;if(o&amp;&amp;(c=i(o)),!c&amp;&amp;s)try{c=document.querySelector(s)}catch{}c&amp;&amp;(c.classList.add(t),c.scrollIntoView({behavior:`smooth`,block:`center`}),n=c,a(c))})})();&lt;/script&gt;&lt;script data-stitch-injected&gt;
-
-        window.__PROTOTYPE_LINKS__ = [];
-
-        window.__PROTOTYPE_INITIAL_STATE__ = &quot;1&quot;;
-
-        window.__HOTSPOTS_INITIAL__ = false;
-
-        
-
-  (function() {
-
-    const SCRIPT_VERSION = '2.0.0 - Unified Run/Connect';
-
-
-
-    // --- Cleanup Previous Instance ---
-
-    if (window.__PROTOTYPE_V2_CLEANUP__ &amp;&amp; typeof window.__PROTOTYPE_V2_CLEANUP__ === 'function') {
-
-      window.__PROTOTYPE_V2_CLEANUP__();
-
-    }
-
-
-
-    // --- Configuration ---
-
-    const HOVER_CLASS = 'interactive-hover';
-
-    const SELECTED_CLASS = 'interactive-selected';
-
-    const CONNECTED_CLASS = 'interactive-connected';
-
-    const RUN_LINK_CLASS = 'prototype-link-hover';
-
-    const HOTSPOT_CLASS = 'prototype-hotspot';
-
-    
-
-    // Style IDs
-
-    const CONNECT_STYLE_ID = 'interactive-mode-styles';
-
-    const RUN_STYLE_ID = 'prototype-run-styles';
-
-
-
-    // Tags that support inline text editing via double-click
-
-    var TEXT_EDITABLE_TAGS = {
-
-      H1:1, H2:1, H3:1, H4:1, H5:1, H6:1,
-
-      P:1, SPAN:1, BUTTON:1, A:1, LABEL:1,
-
-      LI:1, TD:1, TH:1, BLOCKQUOTE:1
-
-    };
-
-
-
-    // State
-
-    let mode = 'run'; // 'run' | 'connect'
-
-    let currentState = window.__PROTOTYPE_INITIAL_STATE__ || '1';
-
-    let links = window.__PROTOTYPE_LINKS__ || [];
-
-    let hotspotsVisible = window.__HOTSPOTS_INITIAL__ !== undefined ? window.__HOTSPOTS_INITIAL__ : true;
-
-    let selectedElement = null;
-
-    let interactive = true; // false when parent UI (edit dialog) should suppress iframe interactions
-
-
-
-    // --- Helper: XPath Evaluator ---
-
-    function getElementByXPath(xpath) {
-
-      const evaluate = (expr) =&gt; {
-
-        try {
-
-          return document.evaluate(
-
-            expr, 
-
-            document, 
-
-            null, 
-
-            XPathResult.FIRST_ORDERED_NODE_TYPE, 
-
-            null
-
-          ).singleNodeValue;
-
-        } catch (e) {
-
-          console.warn('XPath evaluation failed:', expr, e);
-
-          return null;
-
-        }
-
-      };
-
-
-
-      // 1. Try direct evaluation
-
-      let result = evaluate(xpath);
-
-      
-
-      // 2. Try lowercased evaluation
-
-      if (!result) {
-
-        const lower = xpath.toLowerCase();
-
-        if (lower !== xpath) {
-
-             result = evaluate(lower);
-
-        }
-
-      }
-
-
-
-      // 3. Manual Traversal Fallback (Robust against case/browser quirks)
-
-      if (!result) {
-
-        try {
-
-          const parts = xpath.split('/').filter(p =&gt; p &amp;&amp; p !== 'html'); // internal path often starts after html? or includes it. 
-
-          // Our getXPath returns e.g. &quot;id('foo')&quot; or &quot;body/div[1]...&quot;
-
-          
-
-          if (xpath.startsWith('id(')) {
-
-             // Already handled by evaluate usually, but manual fallback:
-
-             const idContent = xpath.match(/id(&quot;([^&quot;]+)&quot;)/);
-
-             if (idContent &amp;&amp; idContent[1]) {
-
-               return document.getElementById(idContent[1]);
-
-             }
-
-          }
-
-
-
-          let current = document.body; // Start at body? Or root?
-
-          // If path starts with &quot;body&quot;, we start at document.body and consume it? 
-
-          // getXPathForElement returns &quot;body/div[1]&quot; if starting at body.
-
-          // So if parts[0] is &quot;body&quot;, we use current=document.body and shift.
-
-          
-
-          if (parts[0].toLowerCase().startsWith('body')) {
-
-             parts.shift();
-
-          } else if (parts[0].toLowerCase().startsWith('html')) {
-
-             parts.shift();
-
-             if (parts.length &gt; 0 &amp;&amp; parts[0].toLowerCase().startsWith('body')) parts.shift();
-
-          }
-
-
-
-          for (const part of parts) {
-
-             // part is like &quot;div[2]&quot; or &quot;span&quot; (implies [1])
-
-             const match = part.match(/^([a-z0-9-_]+)(?:[(d+)])?$/i);
-
-             if (!match) {
-
-               current = null;
-
-               break;
-
-             }
-
-             
-
-             const tagName = match[1].toUpperCase();
-
-             const index = match[2] ? parseInt(match[2], 10) : 1;
-
-             
-
-             // Find nth child with this tag
-
-             let count = 0;
-
-             let found = null;
-
-             const children = current.children; // .children only includes Elements (skips text), which matches XPath element indexing usually?
-
-             // Wait, XPath &quot;div[2]&quot; means 2nd child that IS a div.
-
-             // .children is all elements.
-
-             
-
-             for (let i = 0; i &lt; children.length; i++) {
-
-               const child = children[i];
-
-               if (child.tagName === tagName) {
-
-                 count++;
-
-                 if (count === index) {
-
-                   found = child;
-
-                   break;
-
-                 }
-
-               }
-
-             }
-
-             
-
-             if (!found) {
-
-               current = null; 
-
-               break;
-
-             }
-
-             current = found;
-
-          }
-
-          
-
-          if (current) result = current;
-
-          
-
-        } catch(e) {
-
-          console.warn('Manual XPath traversal failed:', e);
-
-        }
-
-      }
-
-
-
-      return result;
-
-    }
-
-
-
-    // --- Helper: Get XPath for Element (Reverse) ---
-
-    function getXPathForElement(element) {
-
-      if (element.id !== '') return 'id(&quot;' + element.id + '&quot;)';
-
-      if (element === document.body) return element.tagName.toLowerCase();
-
-
-
-      let ix = 0;
-
-      const siblings = element.parentNode ? element.parentNode.childNodes : [];
-
-      
-
-      for (let i = 0; i &lt; siblings.length; i++) {
-
-        const sibling = siblings[i];
-
-        if (sibling === element) {
-
-          return getXPathForElement(element.parentNode) + '/' + element.tagName.toLowerCase() + '[' + (ix + 1) + ']';
-
-        }
-
-        if (sibling.nodeType === 1 &amp;&amp; sibling.tagName === element.tagName) {
-
-          ix++;
-
-        }
-
-      }
-
-    }
-
-
-
-    // --- Position-safe class helpers ---
-
-    // position:relative is only needed for &quot;static&quot; elements so that
-
-    // z-index and ::before labels work.  Fixed/sticky/absolute elements
-
-    // already support z-index, so overriding their position breaks layout
-
-    // (e.g. a fixed header collapses into normal flow and disappears).
-
-    var REPOSITION_ATTR = 'data-interactive-reposition';
-
-
-
-    function addInteractiveClass(el, cls) {
-
-      var needsReposition = window.getComputedStyle(el).position === 'static';
-
-      el.classList.add(cls);
-
-      if (needsReposition) {
-
-        el.setAttribute(REPOSITION_ATTR, '');
-
-      }
-
-    }
-
-
-
-    function removeInteractiveClass(el, cls) {
-
-      el.classList.remove(cls);
-
-      // Only remove reposition attr if no other interactive class remains
-
-      if (!el.classList.contains(HOVER_CLASS) &amp;&amp;
-
-          !el.classList.contains(SELECTED_CLASS) &amp;&amp;
-
-          !el.classList.contains(CONNECTED_CLASS)) {
-
-        el.removeAttribute(REPOSITION_ATTR);
-
-      }
-
-    }
-
-
-
-    // --- CSS Injection ---
-
-    function injectConnectStyles() {
-
-      if (document.getElementById(CONNECT_STYLE_ID)) return;
-
-
-
-      const css = `
-
-        /* Cursor change for the whole page */
-
-        body[data-mode=&quot;connect&quot;] {
-
-          cursor: crosshair !important;
-
-        }
-
-
-
-        /* position:relative only for originally-static elements (via JS attr) */
-
-        [${REPOSITION_ATTR}] {
-
-          position: relative;
-
-        }
-
-
-
-        /* Connected State - Blue/Green (Persistent) */
-
-        .${CONNECTED_CLASS} {
-
-          outline: 2px dashed #4287f5 !important;
-
-          z-index: 9990; 
-
-        }
-
-
-
-        /* Hover State - Blurple */
-
-        .${HOVER_CLASS} {
-
-          outline: 2px solid #5E56E7 !important;
-
-          z-index: 9999;
-
-        }
-
-
-
-        /* Selected State - Same Blurple (Persistent) */
-
-        .${SELECTED_CLASS} {
-
-          outline: 2px solid #5E56E7 !important;
-
-          box-shadow: 0 0 0 2px #5E56E7 !important;
-
-          z-index: 10000;
-
-        }
-
-
-
-        /* Label Tag */
-
-        .${CONNECTED_CLASS}::before,
-
-        .${HOVER_CLASS}::before,
-
-        .${SELECTED_CLASS}::before {
-
-          content: attr(data-interactive-label);
-
-          position: absolute;
-
-          top: -24px;
-
-          left: -2px;
-
-          padding: 2px 8px;
-
-          font-size: 12px !important;
-
-          line-height: 1 !important;
-
-          height: auto !important;
-
-          display: block !important;
-
-          font-family: monospace !important;
-
-          font-weight: normal !important;
-
-          font-style: normal !important;
-
-          text-transform: none !important;
-
-          letter-spacing: normal !important;
-
-          border-radius: 4px 4px 0 0;
-
-          white-space: nowrap;
-
-          pointer-events: none;
-
-          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-
-          z-index: 10001;
-
-        }
-
-
-
-        /* Specific Colors for Labels */
-
-        .${CONNECTED_CLASS}::before {
-
-          background: #4287f5;
-
-          color: white;
-
-          content: &quot;Connected&quot;; 
-
-        }
-
-        
-
-        .${HOVER_CLASS}::before,
-
-        .${SELECTED_CLASS}::before {
-
-          background: #5E56E7;
-
-          color: white;
-
-        }
-
-      `;
-
-
-
-      const style = document.createElement('style');
-
-      style.id = CONNECT_STYLE_ID;
-
-      style.textContent = css;
-
-      document.head.appendChild(style);
-
-    }
-
-
-
-    function injectRunStyles() {
-
-      if (document.getElementById(RUN_STYLE_ID)) return;
-
-      const style = document.createElement('style');
-
-      style.id = RUN_STYLE_ID;
-
-      style.textContent = `
-
-        .${RUN_LINK_CLASS} { cursor: pointer !important; }
-
-        .${HOTSPOT_CLASS} {
-
-          outline: 2px dashed rgba(66, 135, 245, 0.7) !important;
-
-          outline-offset: 2px;
-
-          animation: hotspot-pulse 2s ease-in-out infinite;
-
-        }
-
-        @keyframes hotspot-pulse {
-
-          0%, 100% { outline-color: rgba(66, 135, 245, 0.5); }
-
-          50% { outline-color: rgba(66, 135, 245, 0.9); }
-
-        }
-
-      `;
-
-      document.head.appendChild(style);
-
-    }
-
-
-
-    // --- Core Logic: Connect Mode ---
-
-    function updateConnectMode() {
-
-      document.body.setAttribute('data-mode', 'connect');
-
-      injectConnectStyles();
-
-      highlightConnections();
-
-      
-
-      // Clear run mode artifacts
-
-      document.querySelectorAll('.' + RUN_LINK_CLASS).forEach(el =&gt; el.classList.remove(RUN_LINK_CLASS));
-
-    }
-
-
-
-    function highlightConnections() {
-
-      // Clear existing
-
-      document.querySelectorAll('.' + CONNECTED_CLASS).forEach(el =&gt; {
-
-         removeInteractiveClass(el, CONNECTED_CLASS);
-
-         el.removeAttribute('data-interactive-label');
-
-      });
-
-
-
-      // Highlight based on current state links? 
-
-      // Or ALL links for this screen? Usually all links for this screen logic.
-
-      // But we receive potentially filtered links. 
-
-      // For now, let's use all links passed to us.
-
-      if (!links) {
-
-        return;
-
-      }
-
-
-
-      links.forEach(link =&gt; {
-
-        // Show all connections in Connect mode, regardless of state
-
-        // if (link.state !== '1') return;
-
-
-
-        try {
-
-           let safeXpath = link.xpath;
-
-           if (!safeXpath.startsWith('/') &amp;&amp; !safeXpath.startsWith('id(')) {
-
-             safeXpath = '//' + safeXpath;
-
-           }
-
-
-
-           const element = getElementByXPath(safeXpath);
-
-           if (element) {
-
-             addInteractiveClass(element, CONNECTED_CLASS);
-
-             element.setAttribute('data-interactive-label', 'Connected');
-
-           }
-
-        } catch (e) {}
-
-      });
-
-    }
-
-    
-
-    function handleConnectHover(e) {
-
-      if (mode !== 'connect') return;
-
-      // Don't show hover borders when interactions are paused or element is selected
-
-      if (!interactive || selectedElement) return;
-
-      
-
-      // Cleanup previous hover
-
-      document.querySelectorAll('.' + HOVER_CLASS).forEach(el =&gt; {
-
-         removeInteractiveClass(el, HOVER_CLASS);
-
-         el.removeAttribute('data-interactive-label');
-
-      });
-
-
-
-      const target = e.target;
-
-      if (target === document.body || target === document.documentElement) return;
-
-
-
-      // Skip page-level wrappers — they create stacking contexts that
-
-      // cover fixed/sticky headers and footers.
-
-      var SKIP_HOVER = { MAIN:1, BODY:1, HTML:1 };
-
-      if (SKIP_HOVER[target.tagName]) return;
-
-
-
-      // Don't hover if selected
-
-      if (target.classList.contains(SELECTED_CLASS)) return;
-
-
-
-      addInteractiveClass(target, HOVER_CLASS);
-
-      
-
-      // Determine label
-
-      let label = 'Select';
-
-      if (target.classList.contains(CONNECTED_CLASS)) label = 'Connected';
-
-      
-
-      target.setAttribute('data-interactive-label', label);
-
-    }
-
-
-
-    function handleConnectClick(e) {
-
-      if (mode !== 'connect') return;
-
-
-
-      // Don't intercept clicks originating from contentEditable elements.
-
-      // When editing text in a &lt;button&gt; or &lt;a&gt;, pressing Space fires a
-
-      // synthetic click; we must still preventDefault() to block form
-
-      // submission / navigation, but skip the selection logic so the
-
-      // space character is inserted normally.
-
-      const target = e.target;
-
-      if (target &amp;&amp; (target.isContentEditable || target.closest?.('[contenteditable]'))) {
-
-        e.preventDefault();
-
-        return;
-
-      }
-
-
-
-      e.preventDefault();
-
-      e.stopPropagation();
-
-      if (!interactive) return;
-
-
-
-      // If an element is already selected, deselect it (click anywhere to dismiss)
-
-      if (selectedElement) {
-
-        removeInteractiveClass(selectedElement, SELECTED_CLASS);
-
-        selectedElement.removeAttribute('data-interactive-label');
-
-        selectedElement = null;
-
-        window.parent.postMessage({ type: 'elementDeselected' }, '*');
-
-        return;
-
-      }
-
-
-
-      // target is already declared above
-
-      
-
-      // Toggle selection
-
-      if (target.classList.contains(SELECTED_CLASS)) {
-
-        // Deselect
-
-        removeInteractiveClass(target, SELECTED_CLASS);
-
-        target.removeAttribute('data-interactive-label');
-
-        selectedElement = null;
-
-        
-
-        window.parent.postMessage({
-
-          type: 'elementDeselected' 
-
-        }, '*');
-
-
-
-        // Re-apply hover if mouse is still there?
-
-      } else {
-
-        // Clear previous selection
-
-        if (selectedElement) {
-
-           removeInteractiveClass(selectedElement, SELECTED_CLASS);
-
-           selectedElement.removeAttribute('data-interactive-label');
-
-        }
-
-
-
-        // Skip page-level container wrappers — clicking on padding of a
-
-        // &lt;main&gt; or &lt;body&gt; selects the container which produces a useless
-
-        // overlay. We intentionally keep HEADER, FOOTER, NAV, SECTION
-
-        // etc. selectable since users may want to edit them directly.
-
-        var SKIP_TAGS = { MAIN:1, BODY:1, HTML:1 };
-
-        if (SKIP_TAGS[target.tagName] &amp;&amp; target.children.length &gt; 0) {
-
-          selectedElement = null;
-
-          return;
-
-        }
-
-        
-
-        selectedElement = target;
-
-        addInteractiveClass(selectedElement, SELECTED_CLASS);
-
-        selectedElement.setAttribute('data-interactive-label', 'Selected');
-
-        
-
-        // Remove hover class to avoid double border
-
-        removeInteractiveClass(selectedElement, HOVER_CLASS);
-
-
-
-        // Send to parent
-
-        const xpath = getXPathForElement(selectedElement);
-
-        const rect = selectedElement.getBoundingClientRect();
-
-
-
-        // Check if clicked element matches any stored link (resolve stored xpaths to compare DOM nodes)
-
-        let storedXpath = null;
-
-        if (links &amp;&amp; links.length &gt; 0) {
-
-          for (const link of links) {
-
-            try {
-
-              let safeXpath = link.xpath;
-
-              if (!safeXpath.startsWith('/') &amp;&amp; !safeXpath.startsWith('id(')) {
-
-                safeXpath = '//' + safeXpath;
-
-              }
-
-              const el = getElementByXPath(safeXpath);
-
-              if (el === selectedElement) {
-
-                storedXpath = link.xpath;
-
-                break;
-
-              }
-
-            } catch (err) {}
-
-          }
-
-        }
-
-
-
-        window.parent.postMessage({
-
-          type: 'elementClicked',
-
-          payload: { 
-
-            xpath: storedXpath || xpath,
-
-            tagName: selectedElement.tagName,
-
-            text: (selectedElement.textContent || '').substring(0, 100),
-
-            attributes: Array.from(selectedElement.attributes).map(a =&gt; a.name + '=&quot;' + a.value + '&quot;').join(' '),
-
-            outerHTML: (selectedElement.outerHTML || '').substring(0, 500),
-
-            hasBackgroundImage: !!(selectedElement.style &amp;&amp; selectedElement.style.backgroundImage &amp;&amp; selectedElement.style.backgroundImage.includes('url(')),
-
-            rect: {
-
-              x: rect.x,
-
-              y: rect.y,
-
-              width: rect.width,
-
-              height: rect.height,
-
-              top: rect.top,
-
-              right: rect.right,
-
-              bottom: rect.bottom,
-
-              left: rect.left
-
-            }
-
-          }
-
-        }, '*');
-
-      }
-
-    }
-
-
-
-    // --- Core Logic: Run Mode ---
-
-    function updateRunMode() {
-
-      document.body.removeAttribute('data-mode');
-
-      injectRunStyles();
-
-      addRunInteractivity();
-
-      
-
-      // Clear connect mode artifacts
-
-      document.querySelectorAll('.' + HOVER_CLASS).forEach(el =&gt; {
-
-          removeInteractiveClass(el, HOVER_CLASS);
-
-          el.removeAttribute('data-interactive-label');
-
-      });
-
-       document.querySelectorAll('.' + SELECTED_CLASS).forEach(el =&gt; {
-
-          removeInteractiveClass(el, SELECTED_CLASS);
-
-          el.removeAttribute('data-interactive-label');
-
-      });
-
-      document.querySelectorAll('.' + CONNECTED_CLASS).forEach(el =&gt; {
-
-          removeInteractiveClass(el, CONNECTED_CLASS);
-
-          el.removeAttribute('data-interactive-label');
-
-      });
-
-    }
-
-
-
-    // Timer handle for pending hotspot scans — ensures only one scan is active
-
-    var _hotspotTimer = null;
-
-
-
-    function addRunInteractivity(retryCount) {
-
-      if (!links) return;
-
-      retryCount = retryCount || 0;
-
-
-
-      // Cancel any pending retry to prevent overlapping scans
-
-      if (_hotspotTimer) {
-
-        clearTimeout(_hotspotTimer);
-
-        _hotspotTimer = null;
-
-      }
-
-      
-
-      // 1. Clear existing
-
-      document.querySelectorAll('.' + RUN_LINK_CLASS).forEach(el =&gt; {
-
-        el.classList.remove(RUN_LINK_CLASS);
-
-        el.classList.remove(HOTSPOT_CLASS);
-
-      });
-
-
-
-      // 2. Add highlights
-
-      var foundCount = 0;
-
-      for (const link of links) {
-
-        const isExact = (link.state === currentState);
-
-        const isDefault = (link.state === '1');
-
-        if (!isExact &amp;&amp; !isDefault) continue;
-
-
-
-        try {
-
-          let safeXpath = link.xpath;
-
-          if (!safeXpath.startsWith('/') &amp;&amp; !safeXpath.startsWith('id(')) {
-
-            safeXpath = '//' + safeXpath;
-
-          }
-
-          const el = getElementByXPath(safeXpath);
-
-          if (el) {
-
-            el.classList.add(RUN_LINK_CLASS);
-
-            if (hotspotsVisible) el.classList.add(HOTSPOT_CLASS);
-
-            foundCount++;
-
-          }
-
-        } catch (err) {}
-
-      }
-
-
-
-
-
-
-
-      // Retry with increasing delays if we have links but couldn't find elements
-
-      if (links.length &gt; 0 &amp;&amp; foundCount === 0 &amp;&amp; retryCount &lt; 5) {
-
-        var delays = [100, 200, 400, 600, 1000];
-
-        _hotspotTimer = setTimeout(function() {
-
-          _hotspotTimer = null;
-
-          addRunInteractivity(retryCount + 1);
-
-        }, delays[retryCount]);
-
-      }
-
-    }
-
-
-
-    function toggleHotspots(show) {
-
-      hotspotsVisible = show;
-
-      document.querySelectorAll('.' + RUN_LINK_CLASS).forEach(el =&gt; {
-
-        if (show) el.classList.add(HOTSPOT_CLASS);
-
-        else el.classList.remove(HOTSPOT_CLASS);
-
-      });
-
-    }
-
-
-
-    function handleRunClick(e) {
-
-      if (mode !== 'run') return;
-
-      
-
-      // Prevent default navigation for all links
-
-      const anchor = e.target.closest('a');
-
-      if (anchor) {
-
-        e.preventDefault();
-
-      }
-
-
-
-      if (!links || links.length === 0) return;
-
-
-
-      let bestLink = null;
-
-      let bestPriority = 0;
-
-
-
-      for (const link of links) {
-
-        const isExact = (link.state === currentState);
-
-        const isDefault = (link.state === '1');
-
-        if (!isExact &amp;&amp; !isDefault) continue;
-
-
-
-        try {
-
-          let safeXpath = link.xpath;
-
-          if (!safeXpath.startsWith('/') &amp;&amp; !safeXpath.startsWith('id(')) {
-
-            safeXpath = '//' + safeXpath;
-
-          }
-
-          const el = getElementByXPath(safeXpath);
-
-          
-
-          if (el &amp;&amp; (el === e.target || el.contains(e.target))) {
-
-            const priority = isExact ? 2 : 1;
-
-            if (priority &gt; bestPriority) {
-
-              bestLink = link;
-
-              bestPriority = priority;
-
-            }
-
-          }
-
-        } catch (err) {
-
-            console.error('Error checking link:', link, err);
-
-        }
-
-      }
-
-
-
-      if (bestLink) {
-
-        e.preventDefault();
-
-        e.stopPropagation();
-
-        window.parent.postMessage({
-
-          type: 'navigate',
-
-          payload: {
-
-            targetScreenId: bestLink.targetScreenId,
-
-            transition: bestLink.transition
-
-          }
-
-        }, '*');
-
-      }
-
-    }
-
-
-
-    // --- Main Event Dispatcher ---
-
-    function onMouseOver(e) {
-
-      if (mode === 'connect') handleConnectHover(e);
-
-    }
-
-
-
-    function onClick(e) {
-
-      // Notify parent of any click inside the iframe (used to dismiss
-
-      // the welcome message — iframe clicks don't bubble to parent DOM)
-
-      window.parent.postMessage({ type: 'iframeClicked' }, '*');
-
-      if (mode === 'connect') handleConnectClick(e);
-
-      else if (mode === 'run') handleRunClick(e);
-
-    }
-
-
-
-    function onDblClick(e) {
-
-      if (mode !== 'connect' || !interactive) return;
-
-
-
-      var target = e.target;
-
-      if (!target || target === document.body || target === document.documentElement) return;
-
-
-
-      // Only trigger for text-editable elements
-
-      if (!TEXT_EDITABLE_TAGS[target.tagName]) return;
-
-
-
-      e.preventDefault();
-
-      e.stopPropagation();
-
-
-
-      var xpath = getXPathForElement(target);
-
-
-
-      // Check if clicked element matches a stored link xpath
-
-      var storedXpath = null;
-
-      if (links &amp;&amp; links.length &gt; 0) {
-
-        for (var i = 0; i &lt; links.length; i++) {
-
-          try {
-
-            var safeXpath = links[i].xpath;
-
-            if (!safeXpath.startsWith('/') &amp;&amp; !safeXpath.startsWith('id(')) {
-
-              safeXpath = '//' + safeXpath;
-
-            }
-
-            if (getElementByXPath(safeXpath) === target) {
-
-              storedXpath = links[i].xpath;
-
-              break;
-
-            }
-
-          } catch (err) {}
-
-        }
-
-      }
-
-
-
-      // Tell parent to go directly into text edit mode
-
-      window.parent.postMessage({
-
-        type: 'textEditRequested',
-
-        payload: { xpath: storedXpath || xpath }
-
-      }, '*');
-
-    }
-
-
-
-    // --- HTML Serialization (used by text edit and image replace) ---
-
-    function getEditedHtml() {
-
-      const clone = document.documentElement.cloneNode(true);
-
-
-
-      // 1. Remove contenteditable attributes
-
-      clone.querySelectorAll('[contenteditable]').forEach(function(e) {
-
-        e.removeAttribute('contenteditable');
-
-        e.removeAttribute('spellcheck');
-
-      });
-
-
-
-      // 2. Remove injected script/style elements
-
-      clone.querySelectorAll('script[data-stitch-injected]').forEach(function(e) {
-
-        e.remove();
-
-      });
-
-      clone.querySelectorAll('style[data-stitch-injected]').forEach(function(e) {
-
-        e.remove();
-
-      });
-
-      // Remove prototype edit/run mode style tags by ID
-
-      var modeStyle = clone.querySelector('#interactive-mode-styles');
-
-      if (modeStyle) modeStyle.remove();
-
-      var runStyle = clone.querySelector('#prototype-run-styles');
-
-      if (runStyle) runStyle.remove();
-
-
-
-      // 3. Remove prototype interactive classes and attributes
-
-      var protoClasses = ['interactive-selected', 'interactive-connected',
-
-        'interactive-hover', 'interactive-active', 'prototype-hotspot'];
-
-      protoClasses.forEach(function(cls) {
-
-        clone.querySelectorAll('.' + cls).forEach(function(e) {
-
-          e.classList.remove(cls);
-
-        });
-
-      });
-
-      // Also strip from body
-
-      clone.querySelector('body')?.classList.remove('interactive-active');
-
-      // Remove data-interactive-label and data-interactive-reposition attributes
-
-      clone.querySelectorAll('[data-interactive-label]').forEach(function(e) {
-
-        e.removeAttribute('data-interactive-label');
-
-      });
-
-      clone.querySelectorAll('[' + REPOSITION_ATTR + ']').forEach(function(e) {
-
-        e.removeAttribute(REPOSITION_ATTR);
-
-      });
-
-
-
-      // 4. Remove editing highlight inline styles
-
-      clone.querySelectorAll('[style]').forEach(function(e) {
-
-        e.style.outline = '';
-
-        e.style.outlineOffset = '';
-
-        e.style.cursor = '';
-
-        if (!e.getAttribute('style')?.trim()) {
-
-          e.removeAttribute('style');
-
-        }
-
-      });
-
-
-
-      return '&lt;!DOCTYPE html&gt;' + clone.outerHTML;
-
-    }
-
-
-
-    // --- Message Listener ---
-
-    function handleMessage(event) {
-
-      if (!event.data || typeof event.data !== 'object') return;
-
-      const { type, payload } = event.data;
-
-      
-
-      if (type === 'setMode') {
-
-        const newMode = payload.mode; // 'run' or 'connect' (mapped from 'edit' -&gt; 'connect')
-
-        if (newMode &amp;&amp; newMode !== mode) {
-
-          mode = newMode;
-
-          if (mode === 'connect') updateConnectMode();
-
-          else updateRunMode();
-
-        }
-
-      } else if (type === 'setState') {
-
-        const newStateId = payload?.stateId;
-
-        if (newStateId &amp;&amp; newStateId !== currentState) {
-
-          currentState = newStateId;
-
-          if (mode === 'run') updateRunMode();
-
-        }
-
-      } else if (type === 'updateLinks') {
-
-         // Debounce link updates to prevent rapid broadcasts from
-
-         // clearing and re-scanning hotspots repeatedly
-
-         links = payload.links || [];
-
-         if (window.__updateLinksTimer) clearTimeout(window.__updateLinksTimer);
-
-         window.__updateLinksTimer = setTimeout(function() {
-
-           window.__updateLinksTimer = null;
-
-           if (mode === 'run') updateRunMode();
-
-           else updateConnectMode();
-
-         }, 50);
-
-      } else if (type === 'showHotspots') {
-
-         toggleHotspots(!!payload?.show);
-
-      } else if (type === 'clearSelection') {
-
-         if (selectedElement) {
-
-            removeInteractiveClass(selectedElement, SELECTED_CLASS);
-
-            selectedElement.removeAttribute('data-interactive-label');
-
-            selectedElement = null;
-
-         }
-
-      } else if (type === 'enableTextEdit') {
-
-         // --- Direct text editing ---
-
-         const xpath = payload?.xpath;
-
-         if (!xpath) return;
-
-         let safeXpath = xpath;
-
-         if (!safeXpath.startsWith('/') &amp;&amp; !safeXpath.startsWith('id(')) {
-
-           safeXpath = '//' + safeXpath;
-
-         }
-
-         const el = getElementByXPath(safeXpath);
-
-         if (!el || !(el instanceof HTMLElement)) return;
-
-
-
-         // Track the element being edited
-
-         let textEditElement = el;
-
-
-
-         // Make editable
-
-         textEditElement.setAttribute('contenteditable', 'true');
-
-         textEditElement.setAttribute('spellcheck', 'false');
-
-         textEditElement.style.outline = '2px solid #4287f5';
-
-         textEditElement.style.outlineOffset = '2px';
-
-         textEditElement.style.cursor = 'text';
-
-         textEditElement.focus();
-
-
-
-         // Select all text so user can start typing immediately
-
-         const range = document.createRange();
-
-         range.selectNodeContents(textEditElement);
-
-         const sel = window.getSelection();
-
-         if (sel) {
-
-           sel.removeAllRanges();
-
-           sel.addRange(range);
-
-         }
-
-
-
-         // getEditedHtml is defined at the outer scope
-
-
-
-         // Debounce text extraction to avoid O(N) DOM cloning on every keystroke
-
-         let textEditTimeout;
-
-         function sendHtml() {
-
-           window.parent.postMessage({
-
-             type: 'textChanged',
-
-             payload: { html: getEditedHtml() }
-
-           }, '*');
-
-         }
-
-         function onTextInput() {
-
-           clearTimeout(textEditTimeout);
-
-           textEditTimeout = setTimeout(sendHtml, 300);
-
-         }
-
-
-
-         // Cleanup on blur
-
-         function onTextBlur() {
-
-           // Flush any pending debounced update and send final text
-
-           clearTimeout(textEditTimeout);
-
-           sendHtml();
-
-
-
-           // Cleanup
-
-           textEditElement.removeAttribute('contenteditable');
-
-           textEditElement.removeAttribute('spellcheck');
-
-           textEditElement.style.outline = '';
-
-           textEditElement.style.outlineOffset = '';
-
-           textEditElement.style.cursor = '';
-
-           textEditElement.removeEventListener('input', onTextInput);
-
-           textEditElement.removeEventListener('blur', onTextBlur);
-
-
-
-           // Notify parent that text editing ended
-
-           window.parent.postMessage({
-
-             type: 'textEditEnded'
-
-           }, '*');
-
-         }
-
-
-
-         textEditElement.addEventListener('input', onTextInput);
-
-         textEditElement.addEventListener('blur', onTextBlur);
-
-
-
-         // Store cleanup for disableTextEdit message
-
-         window.__stitchTextEditCleanup = function() {
-
-           textEditElement.removeAttribute('contenteditable');
-
-           textEditElement.removeAttribute('spellcheck');
-
-           textEditElement.style.outline = '';
-
-           textEditElement.style.outlineOffset = '';
-
-           textEditElement.style.cursor = '';
-
-           textEditElement.removeEventListener('input', onTextInput);
-
-           textEditElement.removeEventListener('blur', onTextBlur);
-
-           textEditElement.blur();
-
-         };
-
-      } else if (type === 'disableTextEdit') {
-
-         if (window.__stitchTextEditCleanup) {
-
-           window.__stitchTextEditCleanup();
-
-           window.__stitchTextEditCleanup = null;
-
-         }
-
-      } else if (type === 'replaceImage') {
-
-         // --- Image replacement ---
-
-         const xpath = payload?.xpath;
-
-         const newSrc = payload?.src;
-
-         if (!xpath || !newSrc) return;
-
-         let safeXpath = xpath;
-
-         if (!safeXpath.startsWith('/') &amp;&amp; !safeXpath.startsWith('id(')) {
-
-           safeXpath = '//' + safeXpath;
-
-         }
-
-         const imgEl = getElementByXPath(safeXpath);
-
-         if (!imgEl || !(imgEl instanceof HTMLElement)) return;
-
-
-
-         // Swap image source
-
-         const tag = imgEl.tagName.toLowerCase();
-
-         if (tag === 'img') {
-
-           imgEl.setAttribute('src', newSrc);
-
-         } else {
-
-           // Background image element
-
-           imgEl.style.backgroundImage = 'url(&quot;' + newSrc + '&quot;)';
-
-         }
-
-
-
-         // Send updated HTML to parent for persistence
-
-         window.parent.postMessage({
-
-           type: 'textChanged',
-
-           payload: { html: getEditedHtml() }
-
-         }, '*');
-
-      } else if (type === 'setInteractive') {
-
-         interactive = !!payload?.interactive;
-
-         if (!interactive) {
-
-           // Clear hovers when disabling
-
-           document.querySelectorAll('.' + HOVER_CLASS).forEach(el =&gt; {
-
-             removeInteractiveClass(el, HOVER_CLASS);
-
-             el.removeAttribute('data-interactive-label');
-
-           });
-
-         }
-
-       }
-
-    }
-
-
-
-    window.addEventListener('message', handleMessage);
-
-
-
-    // --- Initialization ---
-
-    document.addEventListener('mouseover', onMouseOver, true);
-
-    document.addEventListener('click', onClick, true); // Capture phase to prevent default
-
-    document.addEventListener('dblclick', onDblClick, true);
-
-
-
-    // Esc key to deselect in connect mode + space key fix for contentEditable buttons
-
-    function onKeyDown(e) {
-
-      // Fix: &lt;button&gt; and &lt;a&gt; elements have a native activation behavior on
-
-      // Space (fires a click). When contentEditable is active on such elements,
-
-      // the browser prioritises activation over text insertion. Prevent the
-
-      // native activation and manually insert the space character instead.
-
-      if (e.key === ' ' &amp;&amp; !e.repeat) {
-
-        const t = e.target;
-
-        if (t &amp;&amp; t.isContentEditable) {
-
-          e.preventDefault();
-
-          document.execCommand('insertText', false, ' ');
-
-          return;
-
-        }
-
-      }
-
-
-
-      if (e.key === 'Escape' &amp;&amp; mode === 'connect' &amp;&amp; selectedElement) {
-
-        removeInteractiveClass(selectedElement, SELECTED_CLASS);
-
-        selectedElement.removeAttribute('data-interactive-label');
-
-        selectedElement = null;
-
-        window.parent.postMessage({ type: 'elementDeselected' }, '*');
-
-      }
-
-    }
-
-    document.addEventListener('keydown', onKeyDown, true);
-
-
-
-    // Clear hover borders when mouse leaves the iframe entirely
-
-    function onMouseLeave() {
-
-      document.querySelectorAll('.' + HOVER_CLASS).forEach(el =&gt; {
-
-        removeInteractiveClass(el, HOVER_CLASS);
-
-        el.removeAttribute('data-interactive-label');
-
-      });
-
-    }
-
-    document.addEventListener('mouseleave', onMouseLeave);
-
-
-
-    // Cleanup function
-
-    window.__PROTOTYPE_V2_CLEANUP__ = function() {
-
-      document.removeEventListener('mouseover', onMouseOver, true);
-
-      document.removeEventListener('click', onClick, true);
-
-      document.removeEventListener('dblclick', onDblClick, true);
-
-      document.removeEventListener('keydown', onKeyDown, true);
-
-      document.removeEventListener('mouseleave', onMouseLeave);
-
-      window.removeEventListener('message', handleMessage);
-
-      // Remove styles
-
-      const connectStyle = document.getElementById(CONNECT_STYLE_ID);
-
-      if (connectStyle) connectStyle.remove();
-
-      const runStyle = document.getElementById(RUN_STYLE_ID);
-
-      if (runStyle) runStyle.remove();
-
-    };
-
-
-
-    // Start in default mode
-
-    function init() {
-
-      if (!document.body) {
-
-        // Should not happen if script is at end of body, but just in case
-
-        console.warn('PrototypeV2: document.body not ready during init');
-
-        return;
-
-      }
-
-      if (mode === 'run') updateRunMode();
-
-      else updateConnectMode();
-
-
-
-      // Notify parent that script is ready to receive messages (links, mode, state)
-
-      window.parent.postMessage({ type: 'iframe_heartbeat' }, '*');
-
-    }
-
-
-
-    if (document.readyState === 'loading') {
-
-      document.addEventListener('DOMContentLoaded', init);
-
-    } else {
-
-      init();
-
-    }
-
-
-
-  })();
-
-
-
-      &lt;/script&gt;&lt;/head&gt;&lt;body class=&quot;bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container&quot;&gt;&lt;!-- ========================================== --&gt;
-
-&lt;!-- 1. NAVIGATION BAR (HEADER)                 --&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;header class=&quot;fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl border-b border-surface-container-high/60 shadow-[0_4px_24px_rgba(0,0,0,0.5)]&quot;&gt;&lt;div class=&quot;h-20 max-w-[1280px] mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-between&quot;&gt;&lt;div class=&quot;flex items-center gap-space-md&quot;&gt;&lt;a class=&quot;flex items-center gap-space-xs group&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;font-headline-md text-headline-md tracking-tight font-bold text-on-surface group-hover:text-primary transition-colors&quot;&gt;STROBIST&lt;/span&gt;&lt;span class=&quot;relative flex h-2 w-2&quot;&gt;&lt;span class=&quot;animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75&quot;&gt;&lt;/span&gt;&lt;span class=&quot;relative inline-flex rounded-full h-2 w-2 bg-primary-container shadow-[0_0_12px_rgba(255,107,0,0.8)]&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;hidden sm:inline-flex items-center px-space-xs py-space-2xs bg-surface-container-high/60 rounded-full font-label-mono text-[11px] text-secondary tracking-wider uppercase border border-outline-variant/30&quot;&gt;MASTERCLASS DE FLASH&lt;/span&gt;&lt;/div&gt;&lt;nav class=&quot;hidden md:flex items-center gap-1 lg:gap-space-2xs bg-surface-container-lowest/80 p-1.5 rounded-full border border-outline-variant/30&quot;&gt;&lt;a class=&quot;px-space-md py-space-2xs rounded-full font-body-md text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all&quot; href=&quot;#metodologia&quot;&gt;Metodología&lt;/a&gt;&lt;a class=&quot;px-space-md py-space-2xs rounded-full font-body-md text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all&quot; href=&quot;#temario&quot;&gt;Temario&lt;/a&gt;&lt;a class=&quot;px-space-md py-space-2xs rounded-full font-body-md text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all&quot; href=&quot;#instructor&quot;&gt;Instructor&lt;/a&gt;&lt;a class=&quot;px-space-md py-space-2xs rounded-full font-body-md text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all&quot; href=&quot;#pricing&quot;&gt;Precios&lt;/a&gt;&lt;a class=&quot;px-space-md py-space-2xs rounded-full font-body-md text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all&quot; href=&quot;#contacto&quot;&gt;Contacto&lt;/a&gt;&lt;/nav&gt;&lt;div class=&quot;flex items-center gap-space-md&quot;&gt;&lt;a class=&quot;inline-flex items-center justify-center px-space-lg py-space-xs rounded-xl bg-primary-container hover:bg-secondary-container text-on-primary font-headline-sm text-sm uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(255,107,0,0.35)] hover:shadow-[0_0_28px_rgba(255,107,0,0.6)] active:scale-95&quot; href=&quot;#pricing&quot;&gt;RESERVAR&lt;/a&gt;&lt;div class=&quot;relative w-9 h-9 rounded-full overflow-hidden ring-1 ring-primary-container/40&quot;&gt;&lt;img alt=&quot;Dariuz Aceves&quot; class=&quot;w-full h-full object-cover object-top&quot; src=&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuD6-0SkjN3ywbW0nYP0JpFF-SiHztQI0hHCiUcEw3EXWwRAbYfOBWyC-oo2V6rT27v0WmH38JTEYTGfH61w0lc9pNl-Y4UbZG488CbcR0mrIolBc5EVXUlYqthdamHjYWyGYqXmNyS7zmDMkz1OQq8YvKiB67VbZc8bJT-5W1PfSFYp9BxyK6gqdUa09KNJVf8tjeMjuyO42C49XRSffuVhbwtj69AtYEWp5h4mc_9P3fmGZ0cjBNqK0L19O3pQVF3gA28&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/header&gt;&lt;main class=&quot;w-full pt-24 bg-surface pb-space-4xl&quot;&gt;&lt;div class=&quot;max-w-[1280px] mx-auto px-gutter-mobile lg:px-gutter-desktop&quot;&gt;&lt;div class=&quot;flex flex-col w-full space-y-space-3xl lg:space-y-space-4xl text-on-surface&quot;&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;!-- 2. HERO SECTION                            --&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;section class=&quot;relative w-full overflow-hidden rounded-2xl bg-surface-container-lowest p-space-lg lg:p-space-3xl shadow-2xl border border-outline-variant/20&quot;&gt;
-
-&lt;div class=&quot;absolute -top-32 -right-32 w-96 h-96 bg-primary-container/15 rounded-full blur-3xl pointer-events-none&quot;&gt;&lt;/div&gt;
-
-&lt;div class=&quot;absolute bottom-0 left-1/4 w-80 h-80 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none&quot;&gt;&lt;/div&gt;
-
-&lt;div class=&quot;grid grid-cols-1 lg:grid-cols-12 gap-space-xl lg:gap-space-2xl items-center relative z-10&quot;&gt;
-
-&lt;!-- Left Column: Copy &amp; Value Proposition --&gt;
-
-&lt;div class=&quot;lg:col-span-7 flex flex-col items-start gap-space-md&quot;&gt;
-
-&lt;!-- Eyebrow Badge --&gt;
-
-&lt;div class=&quot;inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-surface-container-high/80 backdrop-blur-md shadow-sm border border-outline-variant/30&quot;&gt;
-
-&lt;span class=&quot;relative flex h-2 w-2&quot;&gt;
-
-&lt;span class=&quot;animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-80&quot;&gt;&lt;/span&gt;
-
-&lt;span class=&quot;relative inline-flex rounded-full h-2 w-2 bg-primary-container&quot;&gt;&lt;/span&gt;
-
-&lt;/span&gt;
-
-&lt;span class=&quot;font-label-badge text-label-badge text-secondary tracking-widest uppercase&quot;&gt;
-
-            • TALLER PRÁCTICO INTENSIVO • LOCACIÓN REAL
-
-          &lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Headline --&gt;
-
-&lt;h1 class=&quot;font-display-hero text-headline-lg lg:text-display-hero tracking-tight text-on-surface&quot;&gt;
-
-          Masterclass de &lt;br class=&quot;hidden sm:inline&quot;/&gt;
-
-&lt;span class=&quot;text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed-dim via-primary-container to-secondary&quot;&gt;
-
-            Flash en Exterior
-
-          &lt;/span&gt;
-
-&lt;/h1&gt;
-
-&lt;!-- Subtitle --&gt;
-
-&lt;p class=&quot;font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed&quot;&gt;
-
-          Taller ultra personalizado (&lt;span class=&quot;text-on-surface font-headline-sm text-headline-sm&quot;&gt;1 a 1 o dúo&lt;/span&gt;). Domina la luz de estudio en locación y en toda ocasión.
-
-        &lt;/p&gt;
-
-&lt;!-- Instructor Pill in Hero --&gt;
-
-&lt;div class=&quot;flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container/70 backdrop-blur-lg border border-outline-variant/30 shadow-md my-space-xs&quot;&gt;
-
-&lt;div class=&quot;relative w-14 h-14 rounded-lg overflow-hidden shrink-0 ring-1 ring-primary-container/30&quot;&gt;
-
-&lt;img alt=&quot;Dariuz Aceves fotógrafo instructor&quot; class=&quot;w-full h-full object-cover object-top&quot; src=&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDv5m74YZcvSyk-VijErJ2fwT4fjEl-gnUiFEpiy4Z22VK8GigI9uen-10jG-nEE5E6QpoIppq50uLJvNahZDIjrLh6rWd5e4v8pgOLR68mozIvhlxWfJNmS05T9C9tWrZxRvUnYJlJNAP7f9pFCLcOZNYhqg_Smqhs2FL1y7zjXT8hjy2N9Osc4HOJG9WwGwX1k0MSCPzQMjCq7Z6f6O8Dw6PvVMQ0L9RZVBRtmMAuPiA2AIx1KU1no72Y6fhlt_rrzPo&quot;/&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;flex flex-col&quot;&gt;
-
-&lt;div class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;font-headline-sm text-headline-sm text-on-surface&quot;&gt;Dariuz Aceves&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary-container text-body-md&quot; style=&quot;font-variation-settings: 'FILL' 1;&quot;&gt;verified&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-tertiary&quot;&gt;Fotógrafo Publicitario &amp;amp; Director Audiovisual&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- CTAs --&gt;
-
-&lt;div class=&quot;flex flex-wrap items-center gap-space-md pt-space-xs w-full sm:w-auto&quot;&gt;
-
-&lt;a class=&quot;w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-space-md rounded-lg bg-primary-container text-on-primary hover:bg-secondary-container hover:text-on-secondary transition-all font-headline-sm text-headline-sm shadow-[0_0_24px_rgba(255,107,0,0.35)] active:scale-95 group&quot; href=&quot;#pricing&quot;&gt;
-
-&lt;span&gt;Reservar mi Lugar&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined group-hover:translate-x-1 transition-transform&quot;&gt;arrow_forward&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;a class=&quot;w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-lg bg-surface-container-high/80 border border-outline-variant/40 text-on-surface hover:bg-surface-bright hover:text-primary transition-all font-headline-sm text-headline-sm shadow-md&quot; href=&quot;#temario&quot;&gt;
-
-&lt;span&gt;Ver Temario &amp;amp; Metodología&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Quick Spec Ticker --&gt;
-
-&lt;div class=&quot;flex flex-wrap items-center gap-space-md pt-space-sm font-label-mono text-label-mono text-tertiary-fixed-dim&quot;&gt;
-
-&lt;span class=&quot;flex items-center gap-space-2xs&quot;&gt;&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;bolt&lt;/span&gt; HSS 1/8000s&lt;/span&gt;
-
-&lt;span&gt;•&lt;/span&gt;
-
-&lt;span class=&quot;flex items-center gap-space-2xs&quot;&gt;&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;photo_camera&lt;/span&gt; TTL &amp;amp; Manual Pro&lt;/span&gt;
-
-&lt;span&gt;•&lt;/span&gt;
-
-&lt;span class=&quot;flex items-center gap-space-2xs&quot;&gt;&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;groups&lt;/span&gt; Grupos VIP Máx 2 Pax&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Right Column: Hero Visual Showcase (Chiaroscuro Dariuz Aceves Image 6) --&gt;
-
-&lt;div class=&quot;lg:col-span-5 relative flex justify-center&quot;&gt;
-
-&lt;div class=&quot;relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden bg-surface-container shadow-2xl border border-outline-variant/30 group&quot;&gt;
-
-&lt;img alt=&quot;Masterclass de Flash en Exterior - Retrato Chiaroscuro de iluminación Strobist por Dariuz Aceves&quot; class=&quot;w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out&quot; src=&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBszwZXg3xOkso7s5DFpytt1BdSgk986WTQw5HZbU7SHKXP0lShCcCnphPjXlVpzLzR-Teg-9aNqpVyZWleanLAEzdfyyaAxpYRcpHVQhTTZMrwuoQ4zsVxqXxBuRaU4IcS9r66q2_KWA3DWpCioGs3kymi8jrksl2867X1PPj3JUrHsAIct1JwNaA3cT_96fMHGZgUUyIP5BSvnRqaUfXkz2jhQpbBlIUg_Xfi1Qta7pgxwbRHLvo-HR4AFSS-6fXdEVM&quot;/&gt;
-
-&lt;div class=&quot;absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest/30 pointer-events-none&quot;&gt;&lt;/div&gt;
-
-&lt;!-- Tech Diagnostics Overlay --&gt;
-
-&lt;div class=&quot;absolute top-space-md left-space-md right-space-md flex items-center justify-between pointer-events-none&quot;&gt;
-
-&lt;span class=&quot;px-space-xs py-space-2xs rounded bg-surface-container-lowest/80 backdrop-blur-md font-label-mono text-label-mono text-secondary-fixed border border-outline-variant/30&quot;&gt;
-
-              ISO 100 • 1/8000s • f/1.4
-
-            &lt;/span&gt;
-
-&lt;span class=&quot;px-space-xs py-space-2xs rounded bg-primary-container text-on-primary font-label-mono text-label-mono font-bold shadow-[0_0_12px_rgba(255,107,0,0.6)]&quot;&gt;
-
-              FLASH OCF 1/4
-
-            &lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;absolute bottom-space-md left-space-md right-space-md p-space-md rounded-xl bg-surface-container-high/90 backdrop-blur-xl shadow-lg border border-outline-variant/30&quot;&gt;
-
-&lt;div class=&quot;flex items-center justify-between&quot;&gt;
-
-&lt;div&gt;
-
-&lt;p class=&quot;font-headline-sm text-headline-sm text-on-surface&quot;&gt;Arquitectura de Sombra&lt;/p&gt;
-
-&lt;p class=&quot;font-body-sm text-body-sm text-on-surface-variant&quot;&gt;Control absoluto de la ley del inverso al cuadrado&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;h-10 w-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined&quot;&gt;wb_twilight&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/section&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;!-- 3. INSTRUCTOR &amp; SOCIAL PROOF SECTION       --&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;section class=&quot;w-full flex flex-col gap-space-lg&quot; id=&quot;instructor&quot;&gt;
-
-&lt;div class=&quot;relative overflow-hidden rounded-2xl bg-surface-container-low p-space-lg lg:p-space-2xl shadow-xl border border-outline-variant/30 backdrop-blur-xl&quot;&gt;
-
-&lt;div class=&quot;grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center&quot;&gt;
-
-&lt;!-- Instructor Photo &amp; Profile Info --&gt;
-
-&lt;div class=&quot;lg:col-span-7 flex flex-col sm:flex-row items-start sm:items-center gap-space-lg&quot;&gt;
-
-&lt;div class=&quot;relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shrink-0 ring-2 ring-primary-container shadow-2xl&quot;&gt;
-
-&lt;img alt=&quot;Dariuz Aceves - Fotógrafo Publicitario y Director Audiovisual&quot; class=&quot;w-full h-full object-cover object-top&quot; src=&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCP5g60T76rh2CfZMJo00XqDyDkLl2xRGfsChEkfjqbO-tyl0pg1_7bqsKtDs5Y9Z3Vd_xIcv0M0ktyCcluyQDnfRu9myilDakiwfL4vzd5LsNOTzy6yuFEZmwgzsf12l4_yNbDd-_hSriTdHZBPRiWfJwpk7dqk41MNV-BOx6VBYNJ6urudWDQ7qAgjXsRFl7XRlbgMf0Raq4xDkNzQP43UMwS-z7rmvv55W966N1B0Dfr7P1KniwXZFBfxVtDxsdcUEE&quot;/&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-2xs&quot;&gt;
-
-&lt;div class=&quot;inline-flex items-center gap-space-xs px-space-xs py-space-2xs rounded-md bg-primary-container/15 text-primary text-xs font-label-mono uppercase tracking-wider w-fit&quot;&gt;
-
-              Instructor Principal
-
-            &lt;/div&gt;
-
-&lt;h2 class=&quot;font-headline-md text-headline-md text-on-surface&quot;&gt;
-
-              Dariuz Aceves &lt;span class=&quot;text-secondary block sm:inline text-body-lg font-normal&quot;&gt;— Fotógrafo Publicitario &amp;amp; Director Audiovisual&lt;/span&gt;
-
-&lt;/h2&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant leading-relaxed&quot;&gt;
-
-              +14 años de experiencia en fotografía comercial, retrato conceptual y dirección de video cinematográfico en locaciones exigentes.
-
-            &lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Instagram &amp; WhatsApp Social Proof Card --&gt;
-
-&lt;div class=&quot;lg:col-span-5 flex flex-col justify-center p-space-lg rounded-xl bg-surface-container/80 backdrop-blur-md border border-outline-variant/40 shadow-inner&quot;&gt;
-
-&lt;div class=&quot;flex items-center justify-between pb-space-sm border-b border-surface-container-high&quot;&gt;
-
-&lt;div class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary-container&quot;&gt;photo_camera&lt;/span&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono uppercase tracking-wider text-secondary font-bold&quot;&gt;Comunidad &amp;amp; Portafolio&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;span class=&quot;inline-flex items-center px-space-xs py-space-2xs rounded bg-surface-container-high font-label-mono text-xs text-primary font-bold&quot;&gt;LIVE&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;py-space-sm flex flex-col gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-headline-md text-headline-md text-on-surface font-bold&quot;&gt;+14,000 seguidores en Instagram&lt;/span&gt;
-
-&lt;p class=&quot;font-body-sm text-body-sm text-on-surface-variant&quot;&gt;
-
-              Respaldan la calidad visual y técnica de cada shooting. Mira sesiones en vivo y antes/después directo en redes.
-
-            &lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;mt-space-xs flex flex-col sm:flex-row items-stretch sm:items-center gap-space-xs&quot;&gt;
-
-&lt;a class=&quot;flex-1 inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-bright hover:bg-primary-container text-on-surface hover:text-on-primary transition-all font-headline-sm text-sm shadow-md group&quot; href=&quot;https://www.instagram.com/dariuz_foto/&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-body-md group-hover:scale-110 transition-transform&quot;&gt;photo_camera&lt;/span&gt;
-
-&lt;span&gt;Ver Portafolio en @dariuz_foto&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-body-sm&quot;&gt;open_in_new&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;a class=&quot;inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm rounded-lg bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white transition-all font-headline-sm text-sm border border-[#25D366]/40 shadow-md&quot; href=&quot;https://wa.me/523122247792?text=%C2%A1Hola%2C%20Dariuz%21%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Strobist.%20Tengo%20algunas%20dudas%20sobre%20las%20fechas%20%2F%20mi%20nivel%20t%C3%A9cnico%20para%20el%20taller.&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-body-md&quot;&gt;chat&lt;/span&gt;
-
-&lt;span&gt;WhatsApp Directo&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/section&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;!-- 4. METHODOLOGY SECTION (4 KEY CARDS)       --&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;section class=&quot;w-full flex flex-col gap-space-xl&quot; id=&quot;metodologia&quot;&gt;
-
-&lt;div class=&quot;flex flex-col items-start gap-space-2xs&quot;&gt;
-
-&lt;div class=&quot;inline-flex items-center gap-space-xs px-space-xs py-space-2xs rounded bg-primary-container/20 font-label-mono text-xs text-primary font-bold tracking-widest uppercase&quot;&gt;
-
-        Regla 25 / 75
-
-      &lt;/div&gt;
-
-&lt;h2 class=&quot;font-headline-lg text-headline-md lg:text-headline-lg text-on-surface&quot;&gt;
-
-        Metodología de Aprendizaje Dinámica
-
-      &lt;/h2&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant max-w-2xl&quot;&gt;
-
-        Aprende haciendo con retroalimentación instantánea sobre el sensor de tu cámara.
-
-      &lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg&quot;&gt;
-
-&lt;!-- Card 1 --&gt;
-
-&lt;div class=&quot;flex flex-col justify-between p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl hover:border-primary-container/60 hover:bg-surface-container transition-all group&quot;&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-md&quot;&gt;
-
-&lt;div class=&quot;w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center group-hover:scale-110 transition-transform&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-headline-sm&quot;&gt;pie_chart&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-secondary&quot;&gt;01 • ENFOQUE PRÁCTICO&lt;/span&gt;
-
-&lt;h3 class=&quot;font-headline-sm text-headline-sm text-on-surface&quot;&gt;25% Teoría Clave + 75% Práctica Real con Modelo&lt;/h3&gt;
-
-&lt;/div&gt;
-
-&lt;p class=&quot;font-body-sm text-body-sm text-on-surface-variant leading-relaxed&quot;&gt;
-
-            Enfoque dinámico, olvídate de horas aburridas de diapositivas. Todo concepto se ejecuta inmediatamente en locación.
-
-          &lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;pt-space-md mt-space-md border-t border-surface-container-high flex items-center gap-space-2xs font-label-mono text-xs text-tertiary&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-body-sm text-primary&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span&gt;Shooting continuo guiado&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Card 2 --&gt;
-
-&lt;div class=&quot;flex flex-col justify-between p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl hover:border-primary-container/60 hover:bg-surface-container transition-all group&quot;&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-md&quot;&gt;
-
-&lt;div class=&quot;w-12 h-12 rounded-xl bg-secondary-container/20 text-secondary flex items-center justify-center group-hover:scale-110 transition-transform&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-headline-sm&quot;&gt;photo_camera_back&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-secondary&quot;&gt;02 • INFRAESTRUCTURA&lt;/span&gt;
-
-&lt;h3 class=&quot;font-headline-sm text-headline-sm text-on-surface&quot;&gt;Equipo Incluido o Trae el Tuyo&lt;/h3&gt;
-
-&lt;/div&gt;
-
-&lt;p class=&quot;font-body-sm text-body-sm text-on-surface-variant leading-relaxed&quot;&gt;
-
-            Te prestamos flashes estroboscópicos profesionales, disparadores y modificadores. Si traes el tuyo, te enseñamos a dominarlo.
-
-          &lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;pt-space-md mt-space-md border-t border-surface-container-high flex items-center gap-space-2xs font-label-mono text-xs text-tertiary&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-body-sm text-primary&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span&gt;Godox AD series &amp;amp; HSS&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Card 3 --&gt;
-
-&lt;div class=&quot;flex flex-col justify-between p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl hover:border-primary-container/60 hover:bg-surface-container transition-all group&quot;&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-md&quot;&gt;
-
-&lt;div class=&quot;w-12 h-12 rounded-xl bg-primary-fixed-dim/20 text-primary-fixed-dim flex items-center justify-center group-hover:scale-110 transition-transform&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-headline-sm&quot;&gt;speed&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-secondary&quot;&gt;03 • CORRECCIÓN VIVA&lt;/span&gt;
-
-&lt;h3 class=&quot;font-headline-sm text-headline-sm text-on-surface&quot;&gt;Feedback en Tiempo Real&lt;/h3&gt;
-
-&lt;/div&gt;
-
-&lt;p class=&quot;font-body-sm text-body-sm text-on-surface-variant leading-relaxed&quot;&gt;
-
-            Análisis de diagramas de luz directo en tu cámara + Tips para agilizar tu flujo de trabajo y dirección de modelos.
-
-          &lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;pt-space-md mt-space-md border-t border-surface-container-high flex items-center gap-space-2xs font-label-mono text-xs text-tertiary&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-body-sm text-primary&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span&gt;Revisión de histograma al instante&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Card 4 --&gt;
-
-&lt;div class=&quot;flex flex-col justify-between p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl hover:border-primary-container/60 hover:bg-surface-container transition-all group&quot;&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-md&quot;&gt;
-
-&lt;div class=&quot;w-12 h-12 rounded-xl bg-tertiary/20 text-tertiary flex items-center justify-center group-hover:scale-110 transition-transform&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-headline-sm&quot;&gt;bakery_dining&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-secondary&quot;&gt;04 • CONFORT TOTAL&lt;/span&gt;
-
-&lt;h3 class=&quot;font-headline-sm text-headline-sm text-on-surface&quot;&gt;Experiencia VIP&lt;/h3&gt;
-
-&lt;/div&gt;
-
-&lt;p class=&quot;font-body-sm text-body-sm text-on-surface-variant leading-relaxed&quot;&gt;
-
-            Incluye snacks y repostería artesanal durante la sesión para mantener la energía al 100% mientras creas tu portafolio.
-
-          &lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;pt-space-md mt-space-md border-t border-surface-container-high flex items-center gap-space-2xs font-label-mono text-xs text-tertiary&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-body-sm text-primary&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span&gt;Coffee break artesanal en locación&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/section&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;!-- 5. DETAILED CURRICULUM SECTION (TEMARIO)   --&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;section class=&quot;w-full flex flex-col gap-space-xl&quot; id=&quot;temario&quot;&gt;
-
-&lt;div class=&quot;flex flex-col items-start gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono uppercase tracking-widest text-primary font-semibold&quot;&gt;Plan de Estudio Intensivo&lt;/span&gt;
-
-&lt;h2 class=&quot;font-headline-lg text-headline-md lg:text-headline-lg text-on-surface&quot;&gt;
-
-        Temario &amp;amp; Módulos de Aprendizaje
-
-      &lt;/h2&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant max-w-2xl&quot;&gt;
-
-        Estructura técnica paso a paso diseñada para que transformes radicalmente tus imágenes desde la primera toma.
-
-      &lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-space-lg&quot;&gt;
-
-&lt;!-- Module 1 --&gt;
-
-&lt;div class=&quot;flex flex-col p-space-xl rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl relative overflow-hidden&quot;&gt;
-
-&lt;div class=&quot;flex items-center justify-between pb-space-sm border-b border-surface-container-high&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-primary font-bold&quot;&gt;MÓDULO 01&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-secondary&quot;&gt;wb_sunny&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;pt-space-md flex flex-col gap-space-xs&quot;&gt;
-
-&lt;h3 class=&quot;font-headline-sm text-headline-sm text-on-surface&quot;&gt;
-
-            Entender la Luz Ambiente &amp;amp; Ley Inversa del Cuadrado
-
-          &lt;/h3&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant leading-relaxed&quot;&gt;
-
-            Medición precisa, cálculo de caída de luz y balance de exposición natural. Aprende a evaluar el entorno antes de encender el primer flash para no subexponer ni empastar tus sombras.
-
-          &lt;/p&gt;
-
-&lt;ul class=&quot;pt-space-sm flex flex-col gap-space-2xs font-body-sm text-body-sm text-tertiary&quot;&gt;
-
-&lt;li class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;check&lt;/span&gt; Lectura fotométrica de la luz existente
-
-            &lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;check&lt;/span&gt; Caída de luz y distancia flash-sujeto
-
-            &lt;/li&gt;
-
-&lt;/ul&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Module 2 --&gt;
-
-&lt;div class=&quot;flex flex-col p-space-xl rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl relative overflow-hidden&quot;&gt;
-
-&lt;div class=&quot;flex items-center justify-between pb-space-sm border-b border-surface-container-high&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-primary font-bold&quot;&gt;MÓDULO 02&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-secondary&quot;&gt;flash_on&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;pt-space-md flex flex-col gap-space-xs&quot;&gt;
-
-&lt;h3 class=&quot;font-headline-sm text-headline-sm text-on-surface&quot;&gt;
-
-            Integración de Strobe Light &amp;amp; Sincronización HSS a Pleno Sol
-
-          &lt;/h3&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant leading-relaxed&quot;&gt;
-
-            Aprende a apagar el sol de mediodía, velocidad hasta 1/8000s y disparadores inalámbricos. Domina el shutter speed como controlador del ambiente y el diafragma para la potencia del estrobo.
-
-          &lt;/p&gt;
-
-&lt;ul class=&quot;pt-space-sm flex flex-col gap-space-2xs font-body-sm text-body-sm text-tertiary&quot;&gt;
-
-&lt;li class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;check&lt;/span&gt; High Speed Sync (HSS) sin bandas negras
-
-            &lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;check&lt;/span&gt; Canales, grupos y TTL vs Manual rápido
-
-            &lt;/li&gt;
-
-&lt;/ul&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Module 3 --&gt;
-
-&lt;div class=&quot;flex flex-col p-space-xl rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl relative overflow-hidden&quot;&gt;
-
-&lt;div class=&quot;flex items-center justify-between pb-space-sm border-b border-surface-container-high&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-primary font-bold&quot;&gt;MÓDULO 03&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-secondary&quot;&gt;flare&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;pt-space-md flex flex-col gap-space-xs&quot;&gt;
-
-&lt;h3 class=&quot;font-headline-sm text-headline-sm text-on-surface&quot;&gt;
-
-            Luz Dura vs. Luz Modificada
-
-          &lt;/h3&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant leading-relaxed&quot;&gt;
-
-            Práctica comparativa con y sin modificadores: sombrillas, parabólicos, octabox y striplights con grid. Aprende a crear volumen, degradados de piel y texturas según el concepto editorial.
-
-          &lt;/p&gt;
-
-&lt;ul class=&quot;pt-space-sm flex flex-col gap-space-2xs font-body-sm text-body-sm text-tertiary&quot;&gt;
-
-&lt;li class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;check&lt;/span&gt; Modificadores portátiles para exterior
-
-            &lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;check&lt;/span&gt; Enfoque de luz con grids tipo panal
-
-            &lt;/li&gt;
-
-&lt;/ul&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Module 4 --&gt;
-
-&lt;div class=&quot;flex flex-col p-space-xl rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl relative overflow-hidden&quot;&gt;
-
-&lt;div class=&quot;flex items-center justify-between pb-space-sm border-b border-surface-container-high&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-primary font-bold&quot;&gt;MÓDULO 04&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-secondary&quot;&gt;movie_creation&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;pt-space-md flex flex-col gap-space-xs&quot;&gt;
-
-&lt;h3 class=&quot;font-headline-sm text-headline-sm text-on-surface&quot;&gt;
-
-            Esquemas Editoriales &amp;amp; Luces de Recorte
-
-          &lt;/h3&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant leading-relaxed&quot;&gt;
-
-            Creación de atmósfera cinematográfica, rim lights de separación y dirección de poses. Construye retratos potentes con siluetas nítidas que desprenden al sujeto del fondo.
-
-          &lt;/p&gt;
-
-&lt;ul class=&quot;pt-space-sm flex flex-col gap-space-2xs font-body-sm text-body-sm text-tertiary&quot;&gt;
-
-&lt;li class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;check&lt;/span&gt; Esquemas de 1 y 2 luces simultáneas
-
-            &lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary text-body-sm&quot;&gt;check&lt;/span&gt; Comunicación y dirección con la modelo
-
-            &lt;/li&gt;
-
-&lt;/ul&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/section&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;!-- 6. SPECIAL SECTION - TALLER SEMILLA        --&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;section class=&quot;w-full&quot;&gt;
-
-&lt;div class=&quot;relative overflow-hidden rounded-2xl bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-high p-space-lg lg:p-space-2xl shadow-2xl border border-primary-container/30&quot;&gt;
-
-&lt;div class=&quot;flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-xl&quot;&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-sm max-w-2xl&quot;&gt;
-
-&lt;div class=&quot;inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-primary-container/20 text-primary w-fit border border-primary-container/30&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-body-sm&quot;&gt;school&lt;/span&gt;
-
-&lt;span class=&quot;font-label-badge text-label-badge uppercase tracking-wider&quot;&gt;¿CERO EXPERIENCIA PREVIA O SIN MANEJO TÉCNICO BÁSICO?&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;h3 class=&quot;font-headline-lg text-headline-md lg:text-headline-lg text-on-surface&quot;&gt;
-
-            Aprende desde cero en nuestro Taller Semilla
-
-          &lt;/h3&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant&quot;&gt;
-
-            Aprende desde cero en nuestro Taller Semilla (Grupos de máx 3 personas) por &lt;strong class=&quot;text-secondary&quot;&gt;$1,500 MXN&lt;/strong&gt; o a 6 Meses Sin Intereses. Domina el modo manual de tu cámara y los principios de la luz antes de salir a la masterclass avanzada.
-
-          &lt;/p&gt;
-
-&lt;div class=&quot;grid grid-cols-1 sm:grid-cols-2 gap-space-xs pt-space-2xs text-body-sm text-tertiary&quot;&gt;
-
-&lt;div class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary-container text-body-md&quot;&gt;check&lt;/span&gt;
-
-&lt;span&gt;Triángulo de exposición desde cero&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;flex items-center gap-space-xs&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary-container text-body-md&quot;&gt;check&lt;/span&gt;
-
-&lt;span&gt;Grupos hiper-reducidos (máx 3 alumnos)&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Callout Action Card --&gt;
-
-&lt;div class=&quot;flex flex-col items-start lg:items-end gap-space-sm w-full lg:w-auto shrink-0&quot;&gt;
-
-&lt;div class=&quot;p-space-lg rounded-xl bg-surface-container-lowest/80 backdrop-blur-md shadow-lg border border-outline-variant/30 w-full sm:w-80 flex flex-col items-center text-center&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-tertiary uppercase&quot;&gt;Inversión Grupo Semilla&lt;/span&gt;
-
-&lt;span class=&quot;font-headline-lg text-headline-lg text-secondary font-bold my-space-2xs&quot;&gt;$1,500 &lt;span class=&quot;text-headline-sm font-normal text-on-surface-variant&quot;&gt;MXN&lt;/span&gt;&lt;/span&gt;
-
-&lt;span class=&quot;font-body-sm text-body-sm text-primary mb-space-md&quot;&gt;Opción a 6 Meses Sin Intereses&lt;/span&gt;
-
-&lt;div class=&quot;w-full flex flex-col gap-space-xs&quot;&gt;
-
-&lt;a class=&quot;w-full inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary-container hover:bg-secondary-container text-on-primary font-headline-sm text-sm shadow-md transition-all active:scale-95&quot; href=&quot;https://mpago.li/1byrrkV&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-body-md&quot;&gt;payments&lt;/span&gt;
-
-&lt;span&gt;Pagar Taller Semilla ($1,500 MXN)&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;a class=&quot;w-full inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-bright hover:bg-surface-container-highest text-on-surface transition-all font-headline-sm text-xs border border-outline-variant/40&quot; href=&quot;https://wa.me/523122247792?text=%C2%A1Hola%2C%20Dariuz%21%20Me%20interesa%20el%20Taller%20Semilla%20%28B%C3%A1sico%29.%20Quiero%20saber%20las%20pr%C3%B3ximas%20fechas%20para%20grupos%20de%20m%C3%A1ximo%203%20personas.&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-body-sm text-[#25D366]&quot;&gt;chat&lt;/span&gt;
-
-&lt;span&gt;Consultar Próximas Fechas por WhatsApp&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/section&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;!-- 7. PRICING &amp; RESERVATION SECTION           --&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;section class=&quot;w-full flex flex-col gap-space-xl&quot; id=&quot;pricing&quot;&gt;
-
-&lt;div class=&quot;text-center flex flex-col items-center gap-space-2xs max-w-2xl mx-auto&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono uppercase tracking-widest text-primary font-semibold&quot;&gt;ELIGE TU FORMATO VIP&lt;/span&gt;
-
-&lt;h2 class=&quot;font-headline-lg text-headline-md lg:text-headline-lg text-on-surface&quot;&gt;
-
-        Inversión &amp;amp; Reserva de Cupos
-
-      &lt;/h2&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant&quot;&gt;
-
-        Cupos estrictamente limitados por semana para garantizar personalización absoluta, corrección de postura, dirección de modelo y manejo técnico.
-
-      &lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;grid grid-cols-1 lg:grid-cols-2 gap-space-xl items-stretch&quot;&gt;
-
-&lt;!-- Option A: Individual 1 a 1 (Featured) --&gt;
-
-&lt;div class=&quot;relative flex flex-col justify-between p-space-xl lg:p-space-2xl rounded-2xl bg-surface-container-low shadow-2xl border-2 border-primary-container/80 group&quot;&gt;
-
-&lt;div class=&quot;absolute -top-3.5 left-space-xl px-space-md py-space-2xs rounded-full bg-primary-container text-on-primary font-label-badge text-label-badge uppercase tracking-wider shadow-lg&quot;&gt;
-
-          MÁS ELEGIDO • 1 A 1 VIP
-
-        &lt;/div&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-lg pt-space-xs&quot;&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-secondary uppercase tracking-wider&quot;&gt;MODALIDAD PREMIUM&lt;/span&gt;
-
-&lt;h3 class=&quot;font-headline-lg text-headline-lg text-on-surface&quot;&gt;Masterclass 1 a 1 VIP&lt;/h3&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant&quot;&gt;
-
-              Toda la atención del instructor volcada en tu estilo fotográfico y tus objetivos específicos de marca personal o portafolio.
-
-            &lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;flex items-baseline gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-display-hero text-headline-lg lg:text-display-hero text-on-surface font-bold&quot;&gt;$3,500&lt;/span&gt;
-
-&lt;span class=&quot;font-headline-sm text-headline-sm text-on-surface-variant&quot;&gt;MXN&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;ul class=&quot;flex flex-col gap-space-sm pt-space-sm font-body-md text-body-md&quot;&gt;
-
-&lt;li class=&quot;flex items-center gap-space-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary-container text-body-lg&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span class=&quot;text-on-surface font-medium&quot;&gt;100% del tiempo de shooting para ti&lt;/span&gt;
-
-&lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary-container text-body-lg&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span class=&quot;text-on-surface-variant&quot;&gt;Locación y fecha a coordinar según tu agenda&lt;/span&gt;
-
-&lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary-container text-body-lg&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span class=&quot;text-on-surface-variant&quot;&gt;Modelo profesional exclusiva para tu sesión&lt;/span&gt;
-
-&lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary-container text-body-lg&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span class=&quot;text-on-surface-variant&quot;&gt;Flujo de revelado y corrección de color digital&lt;/span&gt;
-
-&lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-primary-container text-body-lg&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span class=&quot;text-on-surface-variant&quot;&gt;Asesoría post-taller de 30 días vía WhatsApp&lt;/span&gt;
-
-&lt;/li&gt;
-
-&lt;/ul&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;pt-space-xl flex flex-col gap-space-sm&quot;&gt;
-
-&lt;div class=&quot;flex flex-col sm:flex-row items-stretch gap-space-xs&quot;&gt;
-
-&lt;a class=&quot;flex-1 inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-primary-container text-on-primary hover:bg-secondary-container hover:text-on-secondary transition-all font-headline-sm text-headline-sm shadow-xl active:scale-95&quot; href=&quot;https://mpago.la/1SVNCpu&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;
-
-&lt;span&gt;Apartar con $500 MXN&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined&quot;&gt;arrow_forward&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;a class=&quot;flex-1 inline-flex items-center justify-center gap-space-xs px-space-md py-space-md rounded-xl bg-surface-container-high border border-outline-variant/40 hover:bg-surface-bright text-on-surface transition-all font-headline-sm text-sm text-center&quot; href=&quot;https://mpago.li/2ucvgFt&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;
-
-&lt;span&gt;Pagar Total a 6 MSI ($3,500 MXN)&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;/div&gt;
-
-&lt;a class=&quot;inline-flex items-center justify-center gap-space-xs font-label-mono text-xs text-primary hover:text-secondary transition-colors pt-space-2xs&quot; href=&quot;https://wa.me/523122247792?text=%C2%A1Hola%2C%20Dariuz%21%20Ya%20realic%C3%A9%20mi%20pago%20%2F%20anticipo%20para%20el%20taller%201%20a%201.%20A%20continuaci%C3%B3n%20te%20adjunto%20el%20screenshot%20de%20mi%20comprobante%3A&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;
-
-&lt;span&gt;Enviar comprobante por WhatsApp →&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-center text-outline&quot;&gt;Garantía de satisfacción y fechas flexibles&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Option B: Dúo (2 personas) --&gt;
-
-&lt;div class=&quot;flex flex-col justify-between p-space-xl lg:p-space-2xl rounded-2xl bg-surface-container shadow-xl border border-outline-variant/30 group&quot;&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-lg&quot;&gt;
-
-&lt;div class=&quot;flex items-center justify-between&quot;&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-secondary uppercase tracking-wider&quot;&gt;MODALIDAD COLABORATIVA&lt;/span&gt;
-
-&lt;h3 class=&quot;font-headline-lg text-headline-lg text-on-surface&quot;&gt;Masterclass Dúo (2 personas)&lt;/h3&gt;
-
-&lt;/div&gt;
-
-&lt;span class=&quot;px-space-sm py-space-2xs rounded-full bg-surface-container-high font-label-badge text-label-badge text-tertiary uppercase&quot;&gt;
-
-              AMIGOS / COLEGAS
-
-            &lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant&quot;&gt;
-
-            Inscríbete con un colega o te asignamos un compañero de tu mismo nivel para practicar dinámica de asistente y fotógrafo principal.
-
-          &lt;/p&gt;
-
-&lt;div class=&quot;flex items-baseline gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-display-hero text-headline-lg lg:text-display-hero text-on-surface font-bold&quot;&gt;$2,500&lt;/span&gt;
-
-&lt;span class=&quot;font-headline-sm text-headline-sm text-on-surface-variant&quot;&gt;MXN / por persona&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;ul class=&quot;flex flex-col gap-space-sm pt-space-sm font-body-md text-body-md&quot;&gt;
-
-&lt;li class=&quot;flex items-center gap-space-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-secondary-container text-body-lg&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span class=&quot;text-on-surface font-medium&quot;&gt;Comparte la sesión con solo 1 colega fotógrafo&lt;/span&gt;
-
-&lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-secondary-container text-body-lg&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span class=&quot;text-on-surface-variant&quot;&gt;Mismo tiempo total de práctica intensiva&lt;/span&gt;
-
-&lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-secondary-container text-body-lg&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span class=&quot;text-on-surface-variant&quot;&gt;Prácticas colaborativas de esquemas de 2 luces&lt;/span&gt;
-
-&lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-secondary-container text-body-lg&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span class=&quot;text-on-surface-variant&quot;&gt;Modelo profesional incluida&lt;/span&gt;
-
-&lt;/li&gt;
-
-&lt;li class=&quot;flex items-center gap-space-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-secondary-container text-body-lg&quot;&gt;check_circle&lt;/span&gt;
-
-&lt;span class=&quot;text-on-surface-variant&quot;&gt;Asesoría de dudas en grupo de WhatsApp&lt;/span&gt;
-
-&lt;/li&gt;
-
-&lt;/ul&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;pt-space-xl flex flex-col gap-space-sm&quot;&gt;
-
-&lt;div class=&quot;flex flex-col sm:flex-row items-stretch gap-space-xs&quot;&gt;
-
-&lt;a class=&quot;flex-1 inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface hover:text-primary transition-all font-headline-sm text-headline-sm shadow-md active:scale-95 border border-outline-variant/40&quot; href=&quot;https://mpago.la/2BRLoiv&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;
-
-&lt;span&gt;Apartar lugar con $300 MXN&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined&quot;&gt;arrow_forward&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;a class=&quot;flex-1 inline-flex items-center justify-center gap-space-xs px-space-md py-space-md rounded-xl bg-surface-container-highest/60 border border-outline-variant/40 hover:bg-surface-bright text-on-surface transition-all font-headline-sm text-sm text-center&quot; href=&quot;https://mpago.li/1bibRka&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;
-
-&lt;span&gt;Pagar Total a 6 MSI ($2,500 MXN)&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;/div&gt;
-
-&lt;a class=&quot;inline-flex items-center justify-center gap-space-xs font-label-mono text-xs text-secondary hover:text-primary transition-colors pt-space-2xs&quot; href=&quot;https://wa.me/523122247792?text=%C2%A1Hola%2C%20Dariuz%21%20Ya%20realic%C3%A9%20mi%20pago%20%2F%20anticipo%20para%20el%20taller%20D%C3%BAo.%20A%20continuaci%C3%B3n%20te%20adjunto%20el%20screenshot%20de%20mi%20comprobante%3A&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;
-
-&lt;span&gt;Enviar comprobante por WhatsApp →&lt;/span&gt;
-
-&lt;/a&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono text-center text-outline&quot;&gt;Puedes venir solo o con tu colega&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Payment Gateways Note --&gt;
-
-&lt;div class=&quot;flex flex-wrap items-center justify-center gap-space-md p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 text-center text-on-surface-variant text-body-sm&quot;&gt;
-
-&lt;span class=&quot;material-symbols-outlined text-secondary-container&quot;&gt;credit_card&lt;/span&gt;
-
-&lt;span&gt;Aceptamos transferencias SPEI, tarjetas de crédito y débito vía Stripe / Mercado Pago. Facilidades a 6 Meses Sin Intereses disponibles.&lt;/span&gt;
-
-&lt;/div&gt;
-
-&lt;/section&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;!-- 8. FREQUENTLY ASKED QUESTIONS &amp; CONTACT    --&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;section class=&quot;w-full flex flex-col gap-space-lg max-w-3xl mx-auto&quot; id=&quot;contacto&quot;&gt;
-
-&lt;div class=&quot;text-center flex flex-col items-center gap-space-2xs&quot;&gt;
-
-&lt;span class=&quot;font-label-mono text-label-mono uppercase tracking-widest text-primary font-semibold&quot;&gt;Resolviendo Dudas&lt;/span&gt;
-
-&lt;h3 class=&quot;font-headline-lg text-headline-md lg:text-headline-lg text-on-surface&quot;&gt;Preguntas Frecuentes &amp;amp; Contacto&lt;/h3&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;flex flex-col gap-space-sm&quot;&gt;
-
-&lt;details class=&quot;group p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 shadow-md transition-all open:bg-surface-container&quot;&gt;
-
-&lt;summary class=&quot;flex items-center justify-between cursor-pointer font-headline-sm text-headline-sm text-on-surface list-none&quot;&gt;
-
-&lt;span&gt;¿Qué pasa si llueve o hay mal clima en la fecha acordada?&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined group-open:rotate-180 transition-transform text-primary&quot;&gt;expand_more&lt;/span&gt;
-
-&lt;/summary&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant pt-space-sm&quot;&gt;
-
-          Monitoreamos el pronóstico con 48h de anticipación. Si las condiciones climáticas comprometen el equipo o la integridad del shooting, reprogramamos de común acuerdo sin ninguna penalización ni costo adicional.
-
-        &lt;/p&gt;
-
-&lt;/details&gt;
-
-&lt;details class=&quot;group p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 shadow-md transition-all open:bg-surface-container&quot;&gt;
-
-&lt;summary class=&quot;flex items-center justify-between cursor-pointer font-headline-sm text-headline-sm text-on-surface list-none&quot;&gt;
-
-&lt;span&gt;¿Qué cámara necesito para poder tomar el curso?&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined group-open:rotate-180 transition-transform text-primary&quot;&gt;expand_more&lt;/span&gt;
-
-&lt;/summary&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant pt-space-sm&quot;&gt;
-
-          Cualquier cámara réflex o mirrorless de lentes intercambiables con zapata estándar para flash (Sony, Canon, Nikon, Fujifilm, Lumix). Si tienes dudas sobre la compatibilidad de tu modelo, envíame un mensaje por WhatsApp antes de reservar.
-
-        &lt;/p&gt;
-
-&lt;/details&gt;
-
-&lt;details class=&quot;group p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 shadow-md transition-all open:bg-surface-container&quot;&gt;
-
-&lt;summary class=&quot;flex items-center justify-between cursor-pointer font-headline-sm text-headline-sm text-on-surface list-none&quot;&gt;
-
-&lt;span&gt;¿Cómo se definen las fechas y locaciones?&lt;/span&gt;
-
-&lt;span class=&quot;material-symbols-outlined group-open:rotate-180 transition-transform text-primary&quot;&gt;expand_more&lt;/span&gt;
-
-&lt;/summary&gt;
-
-&lt;p class=&quot;font-body-md text-body-md text-on-surface-variant pt-space-sm&quot;&gt;
-
-          Al apartar tu lugar, coordinamos directamente en el calendario tus días disponibles (entre semana o fin de semana). Seleccionamos la locación adecuada en la ciudad según el tipo de portafolio que quieras construir (urbano, arquitectónico, bosque o editorial).
-
-        &lt;/p&gt;
-
-&lt;/details&gt;
-
-&lt;/div&gt;
-
-&lt;/section&gt;
-
-&lt;/div&gt;&lt;/div&gt;&lt;/main&gt;&lt;!-- ========================================== --&gt;
-
-&lt;!-- 9. FIXED FLOATING FOOTER / WHATSAPP CTA    --&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;aside class=&quot;fixed bottom-space-md left-0 right-0 z-40 px-gutter-mobile pointer-events-none&quot;&gt;&lt;div class=&quot;max-w-[1280px] mx-auto flex justify-center&quot;&gt;&lt;div class=&quot;pointer-events-auto flex flex-col sm:flex-row items-center justify-between gap-space-md px-space-lg py-space-sm rounded-full bg-surface-container-high/90 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.7)] w-full max-w-2xl ring-1 ring-outline-variant/40&quot;&gt;&lt;div class=&quot;flex items-center gap-space-sm text-center sm:text-left&quot;&gt;&lt;span class=&quot;material-symbols-outlined text-primary-container shrink-0&quot;&gt;chat&lt;/span&gt;&lt;p class=&quot;font-body-sm text-body-sm text-on-surface&quot;&gt;¿Dudas sobre fechas o tu nivel? &lt;span class=&quot;text-on-surface-variant&quot;&gt;Habla directo con Dariuz por WhatsApp&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;a class=&quot;shrink-0 inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-headline-sm text-headline-sm tracking-wide transition-all shadow-[0_0_16px_rgba(37,211,102,0.4)]&quot; href=&quot;https://wa.me/523122247792?text=%C2%A1Hola%2C%20Dariuz%21%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Strobist.%20Tengo%20algunas%20dudas%20sobre%20las%20fechas%20%2F%20mi%20nivel%20t%C3%A9cnico%20para%20el%20taller.&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;material-symbols-outlined text-body-lg&quot;&gt;chat_bubble&lt;/span&gt;&lt;span&gt;WhatsApp Directo&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/aside&gt;&lt;!-- ========================================== --&gt;
-
-&lt;!-- 10. SITE FOOTER                            --&gt;
-
-&lt;!-- ========================================== --&gt;
-
-&lt;footer class=&quot;w-full bg-surface-container-lowest py-space-3xl mt-space-4xl border-t border-outline-variant/20&quot;&gt;&lt;div class=&quot;max-w-[1280px] mx-auto px-gutter-mobile lg:px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-lg&quot;&gt;&lt;div class=&quot;flex flex-col gap-space-2xs text-center md:text-left&quot;&gt;&lt;span class=&quot;font-headline-sm text-headline-sm tracking-tight text-on-surface&quot;&gt;STROBIST MASTERCLASS — ARQUITECTURA DE ILUMINACIÓN &amp;amp; ALTA VELOCIDAD (HSS)&lt;/span&gt;&lt;span class=&quot;font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest&quot;&gt;Aprende iluminación profesional en locación real&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;flex items-center gap-space-lg font-body-sm text-body-sm text-on-surface-variant&quot;&gt;&lt;a class=&quot;hover:text-on-surface transition-colors&quot; href=&quot;#metodologia&quot;&gt;Metodología&lt;/a&gt;&lt;a class=&quot;hover:text-on-surface transition-colors&quot; href=&quot;#temario&quot;&gt;Temario&lt;/a&gt;&lt;a class=&quot;hover:text-on-surface transition-colors&quot; href=&quot;#pricing&quot;&gt;Inversión&lt;/a&gt;&lt;a class=&quot;hover:text-on-surface transition-colors&quot; href=&quot;#contacto&quot;&gt;Contacto&lt;/a&gt;&lt;span class=&quot;font-label-mono text-label-mono text-on-surface-variant/60&quot;&gt;© 2025 STROBIST Studio&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/footer&gt;&lt;/body&gt;&lt;/html&gt;" sandbox="allow-scripts" style="width: 100%; height: 100%; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background-color: rgb(255, 255, 255); pointer-events: auto; opacity: 1;"></iframe></div></div></div></div></div></div></div></div></main>
-
-
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- 1. NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl border-b border-surface-container-high/60 shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+    <div class="h-20 max-w-[1280px] mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-between">
+      <div class="flex items-center gap-space-md">
+        <a class="flex items-center gap-space-xs group" href="#">
+          <span class="font-headline-md text-headline-md tracking-tight font-bold text-on-surface group-hover:text-primary transition-colors">STROBIST</span>
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container shadow-[0_0_12px_rgba(255,107,0,0.8)]"></span>
+          </span>
+        </a>
+        <span class="hidden sm:inline-flex items-center px-space-xs py-space-2xs bg-surface-container-high/60 rounded-full font-label-mono text-[11px] text-secondary tracking-wider uppercase border border-outline-variant/30">MASTERCLASS DE FLASH</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-1 lg:gap-space-2xs bg-surface-container-lowest/80 p-1.5 rounded-full border border-outline-variant/30">
+        <a class="px-space-md py-space-2xs rounded-full font-body-md text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" href="#metodologia">Metodología</a>
+        <a class="px-space-md py-space-2xs rounded-full font-body-md text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" href="#temario">Temario</a>
+        <a class="px-space-md py-space-2xs rounded-full font-body-md text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" href="#instructor">Instructor</a>
+        <a class="px-space-md py-space-2xs rounded-full font-body-md text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" href="#pricing">Precios</a>
+        <a class="px-space-md py-space-2xs rounded-full font-body-md text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" href="#contacto">Contacto</a>
+      </nav>
+      <div class="flex items-center gap-space-md">
+        <a class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-xl bg-primary-container hover:bg-secondary-container text-on-primary font-headline-sm text-sm uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(255,107,0,0.35)] hover:shadow-[0_0_28px_rgba(255,107,0,0.6)] active:scale-95" href="#pricing">RESERVAR</a>
+        <div class="relative w-9 h-9 rounded-full overflow-hidden ring-1 ring-primary-container/40">
+          <img alt="Dariuz Aceves" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6-0SkjN3ywbW0nYP0JpFF-SiHztQI0hHCiUcEw3EXWwRAbYfOBWyC-oo2V6rT27v0WmH38JTEYTGfH61w0lc9pNl-Y4UbZG488CbcR0mrIolBc5EVXUlYqthdamHjYWyGYqXmNyS7zmDMkz1OQq8YvKiB67VbZc8bJT-5W1PfSFYp9BxyK6gqdUa09KNJVf8tjeMjuyO42C49XRSffuVhbwtj69AtYEWp5h4mc_9P3fmGZ0cjBNqK0L19O3pQVF3gA28"/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="w-full pt-28 bg-surface pb-space-4xl">
+    <div class="max-w-[1280px] mx-auto px-gutter-mobile lg:px-gutter-desktop">
+      <div class="flex flex-col w-full space-y-space-3xl lg:space-y-space-4xl text-on-surface">
+
+        <!-- 2. HERO SECTION -->
+        <section class="relative w-full overflow-hidden rounded-2xl bg-surface-container-lowest p-space-lg lg:p-space-3xl shadow-2xl border border-outline-variant/20">
+          <div class="absolute -top-32 -right-32 w-96 h-96 bg-primary-container/15 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl lg:gap-space-2xl items-center relative z-10">
+            <div class="lg:col-span-7 flex flex-col items-start gap-space-md">
+              <div class="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-surface-container-high/80 backdrop-blur-md shadow-sm border border-outline-variant/30">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-80"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span>
+                </span>
+                <span class="font-label-badge text-label-badge text-secondary tracking-widest uppercase">
+                  • TALLER PRÁCTICO INTENSIVO • LOCACIÓN REAL
+                </span>
+              </div>
+              <h1 class="font-display-hero text-headline-lg lg:text-display-hero tracking-tight text-on-surface">
+                Masterclass de <br class="hidden sm:inline"/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed-dim via-primary-container to-secondary">
+                  Flash en Exterior
+                </span>
+              </h1>
+              <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+                Taller ultra personalizado (<span class="text-on-surface font-headline-sm text-headline-sm">1 a 1 o dúo</span>). Domina la luz de estudio en locación y en toda ocasión.
+              </p>
+              <div class="flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container/70 backdrop-blur-lg border border-outline-variant/30 shadow-md my-space-xs">
+                <div class="relative w-14 h-14 rounded-lg overflow-hidden shrink-0 ring-1 ring-primary-container/30">
+                  <img alt="Dariuz Aceves fotógrafo instructor" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv5m74YZcvSyk-VijErJ2fwT4fjEl-gnUiFEpiy4Z22VK8GigI9uen-10jG-nEE5E6QpoIppq50uLJvNahZDIjrLh6rWd5e4v8pgOLR68mozIvhlxWfJNmS05T9C9tWrZxRvUnYJlJNAP7f9pFCLcOZNYhqg_Smqhs2FL1y7zjXT8hjy2N9Osc4HOJG9WwGwX1k0MSCPzQMjCq7Z6f6O8Dw6PvVMQ0L9RZVBRtmMAuPiA2AIx1KU1no72Y6fhlt_rrzPo"/>
+                </div>
+                <div class="flex flex-col">
+                  <div class="flex items-center gap-space-xs">
+                    <span class="font-headline-sm text-headline-sm text-on-surface">Dariuz Aceves</span>
+                    <span class="material-symbols-outlined text-primary-container text-body-md" style="font-variation-settings: 'FILL' 1;">verified</span>
+                  </div>
+                  <span class="font-label-mono text-label-mono text-tertiary">Fotógrafo Publicitario &amp; Director Audiovisual</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center gap-space-md pt-space-xs w-full sm:w-auto">
+                <a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-space-md rounded-lg bg-primary-container text-on-primary hover:bg-secondary-container hover:text-on-secondary transition-all font-headline-sm text-headline-sm shadow-[0_0_24px_rgba(255,107,0,0.35)] active:scale-95 group" href="#pricing">
+                  <span>Reservar mi Lugar</span>
+                  <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+                <a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-lg bg-surface-container-high/80 border border-outline-variant/40 text-on-surface hover:bg-surface-bright hover:text-primary transition-all font-headline-sm text-headline-sm shadow-md" href="#temario">
+                  <span>Ver Temario &amp; Metodología</span>
+                </a>
+              </div>
+              <div class="flex flex-wrap items-center gap-space-md pt-space-sm font-label-mono text-label-mono text-tertiary-fixed-dim">
+                <span class="flex items-center gap-space-2xs"><span class="material-symbols-outlined text-primary text-body-sm">bolt</span> HSS 1/8000s</span>
+                <span>•</span>
+                <span class="flex items-center gap-space-2xs"><span class="material-symbols-outlined text-primary text-body-sm">photo_camera</span> TTL &amp; Manual Pro</span>
+                <span>•</span>
+                <span class="flex items-center gap-space-2xs"><span class="material-symbols-outlined text-primary text-body-sm">groups</span> Grupos VIP Máx 2 Pax</span>
+              </div>
+            </div>
+            <div class="lg:col-span-5 relative flex justify-center">
+              <div class="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden bg-surface-container shadow-2xl border border-outline-variant/30 group">
+                <img alt="Masterclass de Flash en Exterior - Retrato Chiaroscuro de iluminación Strobist por Dariuz Aceves" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBszwZXg3xOkso7s5DFpytt1BdSgk986WTQw5HZbU7SHKXP0lShCcCnphPjXlVpzLzR-Teg-9aNqpVyZWleanLAEzdfyyaAxpYRcpHVQhTTZMrwuoQ4zsVxqXxBuRaU4IcS9r66q2_KWA3DWpCioGs3kymi8jrksl2867X1PPj3JUrHsAIct1JwNaA3cT_96fMHGZgUUyIP5BSvnRqaUfXkz2jhQpbBlIUg_Xfi1Qta7pgxwbRHLvo-HR4AFSS-6fXdEVM"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest/30 pointer-events-none"></div>
+                <div class="absolute top-space-md left-space-md right-space-md flex items-center justify-between pointer-events-none">
+                  <span class="px-space-xs py-space-2xs rounded bg-surface-container-lowest/80 backdrop-blur-md font-label-mono text-label-mono text-secondary-fixed border border-outline-variant/30">
+                    ISO 100 • 1/8000s • f/1.4
+                  </span>
+                  <span class="px-space-xs py-space-2xs rounded bg-primary-container text-on-primary font-label-mono text-label-mono font-bold shadow-[0_0_12px_rgba(255,107,0,0.6)]">
+                    FLASH OCF 1/4
+                  </span>
+                </div>
+                <div class="absolute bottom-space-md left-space-md right-space-md p-space-md rounded-xl bg-surface-container-high/90 backdrop-blur-xl shadow-lg border border-outline-variant/30">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="font-headline-sm text-headline-sm text-on-surface">Arquitectura de Sombra</p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Control absoluto de la ley del inverso al cuadrado</p>
+                    </div>
+                    <div class="h-10 w-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container">
+                      <span class="material-symbols-outlined">wb_twilight</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. INSTRUCTOR & SOCIAL PROOF -->
+        <section class="w-full flex flex-col gap-space-lg" id="instructor">
+          <div class="relative overflow-hidden rounded-2xl bg-surface-container-low p-space-lg lg:p-space-2xl shadow-xl border border-outline-variant/30 backdrop-blur-xl">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+              <div class="lg:col-span-7 flex flex-col sm:flex-row items-start sm:items-center gap-space-lg">
+                <div class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shrink-0 ring-2 ring-primary-container shadow-2xl">
+                  <img alt="Dariuz Aceves - Fotógrafo Publicitario y Director Audiovisual" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP5g60T76rh2CfZMJo00XqDyDkLl2xRGfsChEkfjqbO-tyl0pg1_7bqsKtDs5Y9Z3Vd_xIcv0M0ktyCcluyQDnfRu9myilDakiwfL4vzd5LsNOTzy6yuFEZmwgzsf12l4_yNbDd-_hSriTdHZBPRiWfJwpk7dqk41MNV-BOx6VBYNJ6urudWDQ7qAgjXsRFl7XRlbgMf0Raq4xDkNzQP43UMwS-z7rmvv55W966N1B0Dfr7P1KniwXZFBfxVtDxsdcUEE"/>
+                </div>
+                <div class="flex flex-col gap-space-2xs">
+                  <div class="inline-flex items-center gap-space-xs px-space-xs py-space-2xs rounded-md bg-primary-container/15 text-primary text-xs font-label-mono uppercase tracking-wider w-fit">
+                    Instructor Principal
+                  </div>
+                  <h2 class="font-headline-md text-headline-md text-on-surface">
+                    Dariuz Aceves <span class="text-secondary block sm:inline text-body-lg font-normal">— Fotógrafo Publicitario &amp; Director Audiovisual</span>
+                  </h2>
+                  <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    +14 años de experiencia en fotografía comercial, retrato conceptual y dirección de video cinematográfico en locaciones exigentes.
+                  </p>
+                </div>
+              </div>
+              <div class="lg:col-span-5 flex flex-col justify-center p-space-lg rounded-xl bg-surface-container/80 backdrop-blur-md border border-outline-variant/40 shadow-inner">
+                <div class="flex items-center justify-between pb-space-sm border-b border-surface-container-high">
+                  <div class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary-container">photo_camera</span>
+                    <span class="font-label-mono text-label-mono uppercase tracking-wider text-secondary font-bold">Comunidad &amp; Portafolio</span>
+                  </div>
+                  <span class="inline-flex items-center px-space-xs py-space-2xs rounded bg-surface-container-high font-label-mono text-xs text-primary font-bold">LIVE</span>
+                </div>
+                <div class="py-space-sm flex flex-col gap-space-2xs">
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold">+14,000 seguidores en Instagram</span>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Respaldan la calidad visual y técnica de cada shooting. Mira sesiones en vivo y antes/después directo en redes.
+                  </p>
+                </div>
+                <div class="mt-space-xs flex flex-col sm:flex-row items-stretch sm:items-center gap-space-xs">
+                  <a class="flex-1 inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-bright hover:bg-primary-container text-on-surface hover:text-on-primary transition-all font-headline-sm text-sm shadow-md group" href="https://www.instagram.com/dariuz_foto/" rel="noopener noreferrer" target="_blank">
+                    <span class="material-symbols-outlined text-body-md group-hover:scale-110 transition-transform">photo_camera</span>
+                    <span>Ver Portafolio en @dariuz_foto</span>
+                    <span class="material-symbols-outlined text-body-sm">open_in_new</span>
+                  </a>
+                  <a class="inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm rounded-lg bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white transition-all font-headline-sm text-sm border border-[#25D366]/40 shadow-md" href="https://wa.me/523122247792?text=%C2%A1Hola%2C%20Dariuz%21%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Strobist.%20Tengo%20algunas%20dudas%20sobre%20las%20fechas%20%2F%20mi%20nivel%20t%C3%A9cnico%20para%20el%20taller." rel="noopener noreferrer" target="_blank">
+                    <span class="material-symbols-outlined text-body-md">chat</span>
+                    <span>WhatsApp Directo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. METHODOLOGY SECTION -->
+        <section class="w-full flex flex-col gap-space-xl" id="metodologia">
+          <div class="flex flex-col items-start gap-space-2xs">
+            <div class="inline-flex items-center gap-space-xs px-space-xs py-space-2xs rounded bg-primary-container/20 font-label-mono text-xs text-primary font-bold tracking-widest uppercase">
+              Regla 25 / 75
+            </div>
+            <h2 class="font-headline-lg text-headline-md lg:text-headline-lg text-on-surface">
+              Metodología de Aprendizaje Dinámica
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+              Aprende haciendo con retroalimentación instantánea sobre el sensor de tu cámara.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+            <div class="flex flex-col justify-between p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl hover:border-primary-container/60 hover:bg-surface-container transition-all group">
+              <div class="flex flex-col gap-space-md">
+                <div class="w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-headline-sm">pie_chart</span>
+                </div>
+                <div class="flex flex-col gap-space-2xs">
+                  <span class="font-label-mono text-label-mono text-secondary">01 • ENFOQUE PRÁCTICO</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">25% Teoría Clave + 75% Práctica Real con Modelo</h3>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Enfoque dinámico, olvídate de horas aburridas de diapositivas. Todo concepto se ejecuta inmediatamente en locación.
+                </p>
+              </div>
+              <div class="pt-space-md mt-space-md border-t border-surface-container-high flex items-center gap-space-2xs font-label-mono text-xs text-tertiary">
+                <span class="material-symbols-outlined text-body-sm text-primary">check_circle</span>
+                <span>Shooting continuo guiado</span>
+              </div>
+            </div>
+            <div class="flex flex-col justify-between p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl hover:border-primary-container/60 hover:bg-surface-container transition-all group">
+              <div class="flex flex-col gap-space-md">
+                <div class="w-12 h-12 rounded-xl bg-secondary-container/20 text-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-headline-sm">photo_camera_back</span>
+                </div>
+                <div class="flex flex-col gap-space-2xs">
+                  <span class="font-label-mono text-label-mono text-secondary">02 • INFRAESTRUCTURA</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">Equipo Incluido o Trae el Tuyo</h3>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Te prestamos flashes estroboscópicos profesionales, disparadores y modificadores. Si traes el tuyo, te enseñamos a dominarlo.
+                </p>
+              </div>
+              <div class="pt-space-md mt-space-md border-t border-surface-container-high flex items-center gap-space-2xs font-label-mono text-xs text-tertiary">
+                <span class="material-symbols-outlined text-body-sm text-primary">check_circle</span>
+                <span>Godox AD series &amp; HSS</span>
+              </div>
+            </div>
+            <div class="flex flex-col justify-between p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl hover:border-primary-container/60 hover:bg-surface-container transition-all group">
+              <div class="flex flex-col gap-space-md">
+                <div class="w-12 h-12 rounded-xl bg-primary-fixed-dim/20 text-primary-fixed-dim flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-headline-sm">speed</span>
+                </div>
+                <div class="flex flex-col gap-space-2xs">
+                  <span class="font-label-mono text-label-mono text-secondary">03 • CORRECCIÓN VIVA</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">Feedback en Tiempo Real</h3>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Análisis de diagramas de luz directo en tu cámara + Tips para agilizar tu flujo de trabajo y dirección de modelos.
+                </p>
+              </div>
+              <div class="pt-space-md mt-space-md border-t border-surface-container-high flex items-center gap-space-2xs font-label-mono text-xs text-tertiary">
+                <span class="material-symbols-outlined text-body-sm text-primary">check_circle</span>
+                <span>Revisión de histograma al instante</span>
+              </div>
+            </div>
+            <div class="flex flex-col justify-between p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl hover:border-primary-container/60 hover:bg-surface-container transition-all group">
+              <div class="flex flex-col gap-space-md">
+                <div class="w-12 h-12 rounded-xl bg-tertiary/20 text-tertiary flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-headline-sm">bakery_dining</span>
+                </div>
+                <div class="flex flex-col gap-space-2xs">
+                  <span class="font-label-mono text-label-mono text-secondary">04 • CONFORT TOTAL</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">Experiencia VIP</h3>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Incluye snacks y repostería artesanal durante la sesión para mantener la energía al 100% mientras creas tu portafolio.
+                </p>
+              </div>
+              <div class="pt-space-md mt-space-md border-t border-surface-container-high flex items-center gap-space-2xs font-label-mono text-xs text-tertiary">
+                <span class="material-symbols-outlined text-body-sm text-primary">check_circle</span>
+                <span>Coffee break artesanal en locación</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. TEMARIO SECTION -->
+        <section class="w-full flex flex-col gap-space-xl" id="temario">
+          <div class="flex flex-col items-start gap-space-2xs">
+            <span class="font-label-mono text-label-mono uppercase tracking-widest text-primary font-semibold">Plan de Estudio Intensivo</span>
+            <h2 class="font-headline-lg text-headline-md lg:text-headline-lg text-on-surface">
+              Temario &amp; Módulos de Aprendizaje
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+              Estructura técnica paso a paso diseñada para que transformes radicalmente tus imágenes desde la primera toma.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+            <div class="flex flex-col p-space-xl rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl relative overflow-hidden">
+              <div class="flex items-center justify-between pb-space-sm border-b border-surface-container-high">
+                <span class="font-label-mono text-label-mono text-primary font-bold">MÓDULO 01</span>
+                <span class="material-symbols-outlined text-secondary">wb_sunny</span>
+              </div>
+              <div class="pt-space-md flex flex-col gap-space-xs">
+                <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                  Entender la Luz Ambiente &amp; Ley Inversa del Cuadrado
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Medición precisa, cálculo de caída de luz y balance de exposición natural. Aprende a evaluar el entorno antes de encender el primer flash para no subexponer ni empastar tus sombras.
+                </p>
+                <ul class="pt-space-sm flex flex-col gap-space-2xs font-body-sm text-body-sm text-tertiary">
+                  <li class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary text-body-sm">check</span> Lectura fotométrica de la luz existente
+                  </li>
+                  <li class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary text-body-sm">check</span> Caída de luz y distancia flash-sujeto
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex flex-col p-space-xl rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl relative overflow-hidden">
+              <div class="flex items-center justify-between pb-space-sm border-b border-surface-container-high">
+                <span class="font-label-mono text-label-mono text-primary font-bold">MÓDULO 02</span>
+                <span class="material-symbols-outlined text-secondary">flash_on</span>
+              </div>
+              <div class="pt-space-md flex flex-col gap-space-xs">
+                <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                  Integración de Strobe Light &amp; Sincronización HSS a Pleno Sol
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Aprende a apagar el sol de mediodía, velocidad hasta 1/8000s y disparadores inalámbricos. Domina el shutter speed como controlador del ambiente y el diafragma para la potencia del estrobo.
+                </p>
+                <ul class="pt-space-sm flex flex-col gap-space-2xs font-body-sm text-body-sm text-tertiary">
+                  <li class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary text-body-sm">check</span> High Speed Sync (HSS) sin bandas negras
+                  </li>
+                  <li class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary text-body-sm">check</span> Canales, grupos y TTL vs Manual rápido
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex flex-col p-space-xl rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl relative overflow-hidden">
+              <div class="flex items-center justify-between pb-space-sm border-b border-surface-container-high">
+                <span class="font-label-mono text-label-mono text-primary font-bold">MÓDULO 03</span>
+                <span class="material-symbols-outlined text-secondary">flare</span>
+              </div>
+              <div class="pt-space-md flex flex-col gap-space-xs">
+                <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                  Luz Dura vs. Luz Modificada
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Práctica comparativa con y sin modificadores: sombrillas, parabólicos, octabox y striplights con grid. Aprende a crear volumen, degradados de piel y texturas según el concepto editorial.
+                </p>
+                <ul class="pt-space-sm flex flex-col gap-space-2xs font-body-sm text-body-sm text-tertiary">
+                  <li class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary text-body-sm">check</span> Modificadores portátiles para exterior
+                  </li>
+                  <li class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary text-body-sm">check</span> Enfoque de luz con grids tipo panal
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex flex-col p-space-xl rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl relative overflow-hidden">
+              <div class="flex items-center justify-between pb-space-sm border-b border-surface-container-high">
+                <span class="font-label-mono text-label-mono text-primary font-bold">MÓDULO 04</span>
+                <span class="material-symbols-outlined text-secondary">movie_creation</span>
+              </div>
+              <div class="pt-space-md flex flex-col gap-space-xs">
+                <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                  Esquemas Editoriales &amp; Luces de Recorte
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Creación de atmósfera cinematográfica, rim lights de separación y dirección de poses. Construye retratos potentes con siluetas nítidas que desprenden al sujeto del fondo.
+                </p>
+                <ul class="pt-space-sm flex flex-col gap-space-2xs font-body-sm text-body-sm text-tertiary">
+                  <li class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary text-body-sm">check</span> Esquemas de 1 y 2 luces simultáneas
+                  </li>
+                  <li class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary text-body-sm">check</span> Comunicación y dirección con la modelo
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. SPECIAL SECTION - TALLER SEMILLA -->
+        <section class="w-full">
+          <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-high p-space-lg lg:p-space-2xl shadow-2xl border border-primary-container/30">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-xl">
+              <div class="flex flex-col gap-space-sm max-w-2xl">
+                <div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-primary-container/20 text-primary w-fit border border-primary-container/30">
+                  <span class="material-symbols-outlined text-body-sm">school</span>
+                  <span class="font-label-badge text-label-badge uppercase tracking-wider">¿CERO EXPERIENCIA PREVIA O SIN MANEJO TÉCNICO BÁSICO?</span>
+                </div>
+                <h3 class="font-headline-lg text-headline-md lg:text-headline-lg text-on-surface">
+                  Aprende desde cero en nuestro Taller Semilla
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Aprende desde cero en nuestro Taller Semilla (Grupos de máx 3 personas) por <strong class="text-secondary">$1,500 MXN</strong> o a 6 Meses Sin Intereses. Domina el modo manual de tu cámara y los principios de la luz antes de salir a la masterclass avanzada.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs pt-space-2xs text-body-sm text-tertiary">
+                  <div class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary-container text-body-md">check</span>
+                    <span>Triángulo de exposición desde cero</span>
+                  </div>
+                  <div class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary-container text-body-md">check</span>
+                    <span>Grupos hiper-reducidos (máx 3 alumnos)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col items-start lg:items-end gap-space-sm w-full lg:w-auto shrink-0">
+                <div class="p-space-lg rounded-xl bg-surface-container-lowest/80 backdrop-blur-md shadow-lg border border-outline-variant/30 w-full sm:w-80 flex flex-col items-center text-center">
+                  <span class="font-label-mono text-label-mono text-tertiary uppercase">Inversión Grupo Semilla</span>
+                  <span class="font-headline-lg text-headline-lg text-secondary font-bold my-space-2xs">$1,500 <span class="text-headline-sm font-normal text-on-surface-variant">MXN</span></span>
+                  <span class="font-body-sm text-body-sm text-primary mb-space-md">Opción a 6 Meses Sin Intereses</span>
+                  <div class="w-full flex flex-col gap-space-xs">
+                    <a class="w-full inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary-container hover:bg-secondary-container text-on-primary font-headline-sm text-sm shadow-md transition-all active:scale-95" href="https://mpago.li/1byrrkV" rel="noopener noreferrer" target="_blank">
+                      <span class="material-symbols-outlined text-body-md">payments</span>
+                      <span>Pagar Taller Semilla ($1,500 MXN)</span>
+                    </a>
+                    <a class="w-full inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-bright hover:bg-surface-container-highest text-on-surface transition-all font-headline-sm text-xs border border-outline-variant/40" href="https://wa.me/523122247792?text=%C2%A1Hola%2C%20Dariuz%21%20Me%20interesa%20el%20Taller%20Semilla%20%28B%C3%A1sico%29.%20Quiero%20saber%20las%20pr%C3%B3ximas%20fechas%20para%20grupos%20de%20m%C3%A1ximo%203%20personas." rel="noopener noreferrer" target="_blank">
+                      <span class="material-symbols-outlined text-body-sm text-[#25D366]">chat</span>
+                      <span>Consultar Próximas Fechas por WhatsApp</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. PRICING & RESERVATION SECTION -->
+        <section class="w-full flex flex-col gap-space-xl" id="pricing">
+          <div class="text-center flex flex-col items-center gap-space-2xs max-w-2xl mx-auto">
+            <span class="font-label-mono text-label-mono uppercase tracking-widest text-primary font-semibold">ELIGE TU FORMATO VIP</span>
+            <h2 class="font-headline-lg text-headline-md lg:text-headline-lg text-on-surface">
+              Inversión &amp; Reserva de Cupos
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Cupos strictly limited por semana para garantizar personalización absoluta, corrección de postura, dirección de modelo y manejo técnico.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-space-xl items-stretch">
+            <!-- Option A: 1 a 1 -->
+            <div class="relative flex flex-col justify-between p-space-xl lg:p-space-2xl rounded-2xl bg-surface-container-low shadow-2xl border-2 border-primary-container/80 group">
+              <div class="absolute -top-3.5 left-space-xl px-space-md py-space-2xs rounded-full bg-primary-container text-on-primary font-label-badge text-label-badge uppercase tracking-wider shadow-lg">
+                MÁS ELEGIDO • 1 A 1 VIP
+              </div>
+              <div class="flex flex-col gap-space-lg pt-space-xs">
+                <div class="flex flex-col gap-space-2xs">
+                  <span class="font-label-mono text-label-mono text-secondary uppercase tracking-wider">MODALIDAD PREMIUM</span>
+                  <h3 class="font-headline-lg text-headline-lg text-on-surface">Masterclass 1 a 1 VIP</h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    Toda la atención del instructor volcada en tu estilo fotográfico y tus objetivos específicos de marca personal o portafolio.
+                  </p>
+                </div>
+                <div class="flex items-baseline gap-space-2xs">
+                  <span class="font-display-hero text-headline-lg lg:text-display-hero text-on-surface font-bold">$3,500</span>
+                  <span class="font-headline-sm text-headline-sm text-on-surface-variant">MXN</span>
+                </div>
+                <ul class="flex flex-col gap-space-sm pt-space-sm font-body-md text-body-md">
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary-container text-body-lg">check_circle</span>
+                    <span class="text-on-surface font-medium">100% del tiempo de shooting para ti</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary-container text-body-lg">check_circle</span>
+                    <span class="text-on-surface-variant">Locación y fecha a coordinar según tu agenda</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary-container text-body-lg">check_circle</span>
+                    <span class="text-on-surface-variant">Modelo profesional exclusiva para tu sesión</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary-container text-body-lg">check_circle</span>
+                    <span class="text-on-surface-variant">Flujo de revelado y corrección de color digital</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary-container text-body-lg">check_circle</span>
+                    <span class="text-on-surface-variant">Asesoría post-taller de 30 días vía WhatsApp</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-space-xl flex flex-col gap-space-sm">
+                <div class="flex flex-col sm:flex-row items-stretch gap-space-xs">
+                  <a class="flex-1 inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-primary-container text-on-primary hover:bg-secondary-container hover:text-on-secondary transition-all font-headline-sm text-headline-sm shadow-xl active:scale-95" href="https://mpago.la/1SVNCpu" rel="noopener noreferrer" target="_blank">
+                    <span>Apartar con $500 MXN</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                  </a>
+                  <a class="flex-1 inline-flex items-center justify-center gap-space-xs px-space-md py-space-md rounded-xl bg-surface-container-high border border-outline-variant/40 hover:bg-surface-bright text-on-surface transition-all font-headline-sm text-sm text-center" href="https://mpago.li/2ucvgFt" rel="noopener noreferrer" target="_blank">
+                    <span>Pagar Total a 6 MSI ($3,500 MXN)</span>
+                  </a>
+                </div>
+                <a class="inline-flex items-center justify-center gap-space-xs font-label-mono text-xs text-primary hover:text-secondary transition-colors pt-space-2xs" href="https://wa.me/523122247792?text=%C2%A1Hola%2C%20Dariuz%21%20Ya%20realic%C3%A9%20mi%20pago%20%2F%20anticipo%20para%20el%20taller%201%20a%201.%20A%20continuaci%C3%B3n%20te%20adjunto%20el%20screenshot%20de%20mi%20comprobante%3A" rel="noopener noreferrer" target="_blank">
+                  <span>Enviar comprobante por WhatsApp →</span>
+                </a>
+                <span class="font-label-mono text-label-mono text-center text-outline">Garantía de satisfacción y fechas flexibles</span>
+              </div>
+            </div>
+
+            <!-- Option B: Dúo -->
+            <div class="flex flex-col justify-between p-space-xl lg:p-space-2xl rounded-2xl bg-surface-container shadow-xl border border-outline-variant/30 group">
+              <div class="flex flex-col gap-space-lg">
+                <div class="flex items-center justify-between">
+                  <div class="flex flex-col gap-space-2xs">
+                    <span class="font-label-mono text-label-mono text-secondary uppercase tracking-wider">MODALIDAD COLABORATIVA</span>
+                    <h3 class="font-headline-lg text-headline-lg text-on-surface">Masterclass Dúo (2 personas)</h3>
+                  </div>
+                  <span class="px-space-sm py-space-2xs rounded-full bg-surface-container-high font-label-badge text-label-badge text-tertiary uppercase">
+                    AMIGOS / COLEGAS
+                  </span>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Inscríbete con un colega o te asignamos un compañero de tu mismo nivel para practicar dinámica de asistente y fotógrafo principal.
+                </p>
+                <div class="flex items-baseline gap-space-2xs">
+                  <span class="font-display-hero text-headline-lg lg:text-display-hero text-on-surface font-bold">$2,500</span>
+                  <span class="font-headline-sm text-headline-sm text-on-surface-variant">MXN / por persona</span>
+                </div>
+                <ul class="flex flex-col gap-space-sm pt-space-sm font-body-md text-body-md">
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-secondary-container text-body-lg">check_circle</span>
+                    <span class="text-on-surface font-medium">Comparte la sesión con solo 1 colega fotógrafo</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-secondary-container text-body-lg">check_circle</span>
+                    <span class="text-on-surface-variant">Mismo tiempo total de práctica intensiva</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-secondary-container text-body-lg">check_circle</span>
+                    <span class="text-on-surface-variant">Prácticas colaborativas de esquemas de 2 luces</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-secondary-container text-body-lg">check_circle</span>
+                    <span class="text-on-surface-variant">Modelo profesional incluida</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-secondary-container text-body-lg">check_circle</span>
+                    <span class="text-on-surface-variant">Asesoría de dudas en grupo de WhatsApp</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-space-xl flex flex-col gap-space-sm">
+                <div class="flex flex-col sm:flex-row items-stretch gap-space-xs">
+                  <a class="flex-1 inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface hover:text-primary transition-all font-headline-sm text-headline-sm shadow-md active:scale-95 border border-outline-variant/40" href="https://mpago.la/2BRLoiv" rel="noopener noreferrer" target="_blank">
+                    <span>Apartar lugar con $300 MXN</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                  </a>
+                  <a class="flex-1 inline-flex items-center justify-center gap-space-xs px-space-md py-space-md rounded-xl bg-surface-container-highest/60 border border-outline-variant/40 hover:bg-surface-bright text-on-surface transition-all font-headline-sm text-sm text-center" href="https://mpago.li/1bibRka" rel="noopener noreferrer" target="_blank">
+                    <span>Pagar Total a 6 MSI ($2,500 MXN)</span>
+                  </a>
+                </div>
+                <a class="inline-flex items-center justify-center gap-space-xs font-label-mono text-xs text-secondary hover:text-primary transition-colors pt-space-2xs" href="https://wa.me/523122247792?text=%C2%A1Hola%2C%20Dariuz%21%20Ya%20realic%C3%A9%20mi%20pago%20%2F%20anticipo%20para%20el%20taller%20D%C3%BAo.%20A%20continuaci%C3%B3n%20te%20adjunto%20el%20screenshot%20de%20mi%20comprobante%3A" rel="noopener noreferrer" target="_blank">
+                  <span>Enviar comprobante por WhatsApp →</span>
+                </a>
+                <span class="font-label-mono text-label-mono text-center text-outline">Puedes venir solo o con tu colega</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-space-md p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 text-center text-on-surface-variant text-body-sm">
+            <span class="material-symbols-outlined text-secondary-container">credit_card</span>
+            <span>Aceptamos transferencias SPEI, tarjetas de crédito y débito vía Stripe / Mercado Pago. Facilidades a 6 Meses Sin Intereses disponibles.</span>
+          </div>
+        </section>
+
+        <!-- 8. FAQ & CONTACT SECTION -->
+        <section class="w-full flex flex-col gap-space-lg max-w-3xl mx-auto" id="contacto">
+          <div class="text-center flex flex-col items-center gap-space-2xs">
+            <span class="font-label-mono text-label-mono uppercase tracking-widest text-primary font-semibold">Resolviendo Dudas</span>
+            <h3 class="font-headline-lg text-headline-md lg:text-headline-lg text-on-surface">Preguntas Frecuentes &amp; Contacto</h3>
+          </div>
+          <div class="flex flex-col gap-space-sm">
+            <details class="group p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 shadow-md transition-all open:bg-surface-container">
+              <summary class="flex items-center justify-between cursor-pointer font-headline-sm text-headline-sm text-on-surface list-none">
+                <span>¿Qué pasa si llueve o hay mal clima en la fecha acordada?</span>
+                <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-primary">expand_more</span>
+              </summary>
+              <p class="font-body-md text-body-md text-on-surface-variant pt-space-sm">
+                Monitoreamos el pronóstico con 48h de anticipación. Si las condiciones climáticas comprometen el equipo o la integridad del shooting, reprogramamos de común acuerdo sin ninguna penalización ni costo adicional.
+              </p>
+            </details>
+            <details class="group p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 shadow-md transition-all open:bg-surface-container">
+              <summary class="flex items-center justify-between cursor-pointer font-headline-sm text-headline-sm text-on-surface list-none">
+                <span>¿Qué cámara necesito para poder tomar el curso?</span>
+                <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-primary">expand_more</span>
+              </summary>
+              <p class="font-body-md text-body-md text-on-surface-variant pt-space-sm">
+                Cualquier cámara réflex o mirrorless de lentes intercambiables con zapata estándar para flash (Sony, Canon, Nikon, Fujifilm, Lumix). Si tienes dudas sobre la compatibilidad de tu modelo, envíame un mensaje por WhatsApp antes de reservar.
+              </p>
+            </details>
+            <details class="group p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 shadow-md transition-all open:bg-surface-container">
+              <summary class="flex items-center justify-between cursor-pointer font-headline-sm text-headline-sm text-on-surface list-none">
+                <span>¿Cómo se definen las fechas y locaciones?</span>
+                <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-primary">expand_more</span>
+              </summary>
+              <p class="font-body-md text-body-md text-on-surface-variant pt-space-sm">
+                Al apartar tu lugar, coordinamos directamente en el calendario tus días disponibles (entre semana o fin de semana). Seleccionamos la locación adecuada en la ciudad según el tipo de portafolio que quieras construir (urbano, arquitectónico, bosque o editorial).
+              </p>
+            </details>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- 9. FLOATING WHATSAPP CTA -->
+  <aside class="fixed bottom-space-md left-0 right-0 z-40 px-gutter-mobile pointer-events-none">
+    <div class="max-w-[1280px] mx-auto flex justify-center">
+      <div class="pointer-events-auto flex flex-col sm:flex-row items-center justify-between gap-space-md px-space-lg py-space-sm rounded-full bg-surface-container-high/90 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.7)] w-full max-w-2xl ring-1 ring-outline-variant/40">
+        <div class="flex items-center gap-space-sm text-center sm:text-left">
+          <span class="material-symbols-outlined text-primary-container shrink-0">chat</span>
+          <p class="font-body-sm text-body-sm text-on-surface">¿Dudas sobre fechas o tu nivel? <span class="text-on-surface-variant">Habla directo con Dariuz por WhatsApp</span></p>
+        </div>
+        <a class="shrink-0 inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-headline-sm text-headline-sm tracking-wide transition-all shadow-[0_0_16px_rgba(37,211,102,0.4)]" href="https://wa.me/523122247792?text=%C2%A1Hola%2C%20Dariuz%21%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Strobist.%20Tengo%20algunas%20dudas%20sobre%20las%20fechas%20%2F%20mi%20nivel%20t%C3%A9cnico%20para%20el%20taller." rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-body-lg">chat_bubble</span>
+          <span>WhatsApp Directo</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 10. SITE FOOTER -->
+  <footer class="w-full bg-surface-container-lowest py-space-3xl mt-space-4xl border-t border-outline-variant/20">
+    <div class="max-w-[1280px] mx-auto px-gutter-mobile lg:px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-lg">
+      <div class="flex flex-col gap-space-2xs text-center md:text-left">
+        <span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">STROBIST MASTERCLASS — ARQUITECTURA DE ILUMINACIÓN &amp; ALTA VELOCIDAD (HSS)</span>
+        <span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">Aprende iluminación profesional en locación real</span>
+      </div>
+      <div class="flex items-center gap-space-lg font-body-sm text-body-sm text-on-surface-variant">
+        <a class="hover:text-on-surface transition-colors" href="#metodologia">Metodología</a>
+        <a class="hover:text-on-surface transition-colors" href="#temario">Temario</a>
+        <a class="hover:text-on-surface transition-colors" href="#pricing">Inversión</a>
+        <a class="hover:text-on-surface transition-colors" href="#contacto">Contacto</a>
+        <span class="font-label-mono text-label-mono text-on-surface-variant/60">© 2026 STROBIST Studio</span>
+      </div>
+    </div>
+  </footer>
 
 </body>
-
 </html>
